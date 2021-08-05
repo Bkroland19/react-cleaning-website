@@ -1,0 +1,83 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 600px) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-port {
+    @media (max-width: 900px) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-land {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  }
+  @if $breakpoint == big-desktop {
+    @media (min-width: 1800px) {
+      @content;
+    }
+  }
+}
+
+html {
+  font-size: 62.5%;
+
+  @include respond(tab-land) {
+    font-size: 56.25%;
+  }
+
+  @include respond(tab-port) {
+    font-size: 50%;
+  }
+
+  @include respond(tab-phone) {
+    font-size: 30%;
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "TTT-Bold";
+  src: local("TTT-Bold"), url(./fonts/TTTravels-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "TTT-DemiBold";
+  src: local("TTT-DemiBold"),
+    url(./fonts/TTTravels-DemiBold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "TTT-Light";
+  src: local("TTT-Light"), url(./fonts/TTTravels-Light.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "TTT-Medium";
+  src: local("TTT-Medium"), url(./fonts/TTTravels-Medium.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "TTT-Regular";
+  src: local("TTT-Regular"),
+    url(./fonts/TTTravels-Regular.ttf) format("truetype");
+}

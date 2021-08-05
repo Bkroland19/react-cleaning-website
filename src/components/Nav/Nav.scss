@@ -1,0 +1,167 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 100;
+  margin: 1em 3em 2em 3em;
+}
+
+.left-container {
+  display: flex;
+  align-items: center;
+  &__text {
+    margin: 0 1em 0 1em;
+    text-align: center;
+  }
+}
+
+.bold {
+  font-family: "TTT-Bold";
+  font-size: 1.7em;
+}
+
+.switch-1 {
+  position: relative;
+  height: 50px;
+}
+
+.switch-1 {
+  input {
+    position: relative;
+    width: 175px;
+    height: 45px;
+    border-radius: 25px;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    font-family: "TTT-DemiBold";
+    font-weight: bold;
+    box-shadow: 1px 2px 3px #000000;
+  }
+}
+
+.switch-1 {
+  input:before,
+  input:after {
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #111;
+  }
+}
+
+.switch-1 {
+  input:before {
+    content: "Дом";
+    left: 25px;
+  }
+  input:after {
+    content: "Офис";
+    right: 25px;
+  }
+  label {
+    z-index: 1;
+    position: absolute;
+    top: 8px;
+    bottom: 12px;
+    border-radius: 20px;
+  }
+}
+
+.switch-1.switch-2 {
+  input {
+    transition: 0.2s -0.1s;
+  }
+  input:checked {
+    background: #fff;
+  }
+  input:checked:before {
+    color: #111;
+    transition: color 0.5s 0.2s;
+  }
+  input:checked:after {
+    color: #111;
+    transition: color 0.5s;
+  }
+  input:checked + label {
+    left: 10px;
+    right: 100px;
+    background: #5a2ff0;
+    transition: left 0.5s, right 0.4s 0.2s;
+  }
+  input:not(:checked) {
+    background: #5a2ff0;
+    transition: background 0.5s -0.1s;
+  }
+  input:not(:checked):before {
+    color: #111;
+    transition: color 0.5s;
+  }
+  input:not(:checked):after {
+    color: #1e1e1e;
+    transition: color 0.5s 0.2s;
+  }
+  input:not(:checked) + label {
+    left: 100px;
+    right: 10px;
+    background: #fff;
+    transition: left 0.4s 0.2s, right 0.5s, background 0.35s -0.2s;
+  }
+}
+
+.middle-container {
+  display: flex;
+  font-family: "TTT-Regular";
+  font-weight: 500;
+  &__item {
+    margin: 0 1em 0 1em;
+  }
+}
+
+.right-container {
+  display: flex;
+  font-family: "TTT-Medium";
+  &__item {
+    margin: 0 1em 0 1em;
+  }
+}
+
+/*
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+*/
+
+// @mixin respond($breakpoin.left-container {
+//   display: flex;
+//   align-items: center;
+//   &__text {
+//     margin: 0 1em 0 1em;
+//     text-align: center;
+//   }
+// }) {
+//   @if $breakpoint == phone {
+//     @media (max-width: 600px) {
+//       @content;
+//     }
+//   }
+//   @if $breakpoint == tab-port {
+//     @media (max-width: 900px) {
+//       @content;
+//     }
+//   }
+//   @if $breakpoint == tab-land {
+//     @media (max-width: 1200px) {
+//       @content;
+//     }
+//   }
+//   @if $breakpoint == big-desktop {
+//     @media (min-width: 1800px) {
+//       @content;
+//     }
+//   }
+// }
