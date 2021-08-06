@@ -1,0 +1,82 @@
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  margin-top: 7.5em;
+  // &__item:before {
+  //   content: "";
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   display: block;
+  //   width: 100%;
+  //   height: 100%;
+  //   opacity: 0;
+  // }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    position: relative;
+    width: 300px;
+    height: 250px;
+    font-family: "TTT-Medium";
+    font-size: 1.5em;
+    background-color: #f3f6fb;
+    border-radius: 1em;
+    &__hover--text {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      text-align: left;
+      padding: 1em;
+      line-break: auto;
+      background-color: #5a2ff0;
+      transition: 0.4s ease-out;
+      opacity: 0;
+      border-radius: 0.5em;
+    }
+    &:hover &__hover--text {
+      opacity: 1;
+    }
+    & * .bottle--img {
+      width: 60px;
+      height: 180px;
+    }
+    &__img * img {
+      height: 180px;
+    }
+    &__img {
+      height: 180px;
+      & img {
+        height: 180px;
+      }
+    }
+  }
+  // &__item:after {
+  //   opacity: 1;
+  // }
+}
+
+.animated1 {
+  transform: translateY(-5vh);
+  transition: transform 0.5s;
+}
+
+.animated2 {
+  transform: translateY(-5vh);
+  transition: transform 0.7s;
+
+}
+
+.animated3 {
+  transform: translateY(-5vh);
+  transition: transform 0.9s;
+}
+
+.animated4 {
+  transform: translateY(-5vh);
+  transition: transform 1.1s;
+}
