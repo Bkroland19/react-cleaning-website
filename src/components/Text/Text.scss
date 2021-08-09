@@ -1,0 +1,18 @@
+.text-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 10em 0 15em 0;
+  &__h1 {
+    font-family: "TTT-Light";
+    font-size: 3.5em;
+    font-weight: 400;
+    color: gray;
+  }
+  &__text {
+    max-width: 350px;
+    line-height: 1.2em;
+    font-size: 2em;
+    font-family: "TTT-Regular";
+    color: gray;
+  }
+}

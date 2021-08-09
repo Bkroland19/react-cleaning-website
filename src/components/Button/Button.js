@@ -1,74 +1,71 @@
-import React, { useEffect, useRef, useLayoutEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import "./Button.scss";
 
 function Button() {
   const [showBtn, setShowBtn] = useState(false);
-  const btnRef = useRef();
-//ya text kısmı olayları ya da btn cpontainer olan wrapperdan değil gibi gfeli bana
+  const [scrollPosition, setScrollPosition] = useState(0);
 
-// verdigimiz degeerler 2 ayri yerden ya orda bir cakisma var asnirim
-  useLayoutEffect(() => {
-    const btnPosition = btnRef.current.getBoundingClientRect().bottom;
-    const onScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight;
-      if (btnPosition < scrollPosition) {
-        setShowBtn(true);
-      } else {
-        setShowBtn(false);
-      }
-    };
+  const mouseMove = useCallback((e) => {
+    const btn = document.querySelector(".button-container");
+    const position = btn.getBoundingClientRect();
+    const x = e.pageX - position.left - position.width / 2;
+    const y = e.pageY - position.top - position.height / 2;
+    btn.style.transform =
+      "translate3d(" + x * 0.3 + "px, " + y * 0.6 + "px, " + 0 + "px) scale(1)";
+    btn.children[1].style.transform =
+      "translate3d(" +
+      x * 0.2 +
+      "px, " +
+      y * 0.4 +
+      "px, " +
+      0 +
+      "px) scale(1.2)";
+    btn.children[0].style.transform = "scale(1.4)";
+  }, []);
+
+  const mouseOut = useCallback((e) => {
+    const btn = document.querySelector(".button-container");
+
+    btn.style.transform = "translate3d(0px, 0px, 0px) scale(1)";
+    btn.children[1].style.transform = "translate(0,0)"; // 1
+    btn.children[0].style.transform = "scale(1)";
   }, []);
 
   useEffect(() => {
-    var x=0;
-    var y = 0
-    const wrapper = document.querySelector(".wrapper");
     const btn = document.querySelector(".button-container");
-    wrapper.style.animation = "bounce 1.5s infinite alternate";
+    const wrapper = document.querySelector(".wrapper");
 
-    wrapper.addEventListener("mousemove", function (e) {
-      const position = btn.getBoundingClientRect();
-        x = e.pageX - position.left - position.width / 2;
-        y = e.pageY - position.top - position.height / 2;
- 
-      // wrapper.style.transform =
-      //   "translate(" + x * 0.3 + "px, " + y * 0.6 + "px)";
-//en alta inince titremesi demi sorun
+    if (scrollPosition > window.innerHeight + 250) {
+      setShowBtn(true);
+      btn.removeEventListener("mousemove", mouseMove, false);
+      btn.removeEventListener("mouseout", mouseOut, false);
+    } else {
+      setShowBtn(false);
+      btn.addEventListener("mousemove", mouseMove, false);
+      btn.addEventListener("mouseout", mouseOut, false);
+    }
 
-      wrapper.style.transform = "scale(1.2)";
-      wrapper.style.animation = "none";
-      wrapper.style.transition = "2s all";
-    });
-    wrapper.addEventListener("mouseout", function (e) {
-      btn.style.transform = "translate(0px,0px)";
-      btn.children[2].style.transform = "translate(0px,0px)";
-      wrapper.style.transform = "scale(1)";
-      wrapper.style.animation = "bounce 1.5s infinite alternate";
-    });
+    const scroolCatch = () => {
+      let pos = window.innerHeight + window.scrollY;
+      setScrollPosition(pos);
+    };
 
-    btn.addEventListener("mousemove", function (e) {
-     
-//
-      btn.style.transform = "translate(" + x * 0.3 + "px, " + y * 0.5 + "px)";
-      btn.children[2].style.transform =
-        "translate(" + x * 0.2 + "px, " + y * 0.2 + "px)";
-      btn.children[1].style.transform = "scale(1.1)";
-    });
-
-    btn.addEventListener("mouseout", function (e) {
-      btn.style.transform = "translate(0px,0px)";
-      btn.children[2].style.transform = "translate(0px,0px)";
-      btn.children[1].style.transform = "scale(1.0)";
-    });
-  }, []);
+    window.addEventListener("scroll", scroolCatch);
+    return () => window.removeEventListener("scroll", scroolCatch);
+  }, [scrollPosition, showBtn]);
 
   return (
     <React.Fragment>
-      <div className="wrapper" ref={btnRef}>
-        <div className="button-container">
-          <div className="button-container__background"></div>
+      <div className={`wrapper ${showBtn ? "active--wrapper" : "bounce"}`}>
+        <div
+          className={`button-container ${
+            showBtn
+              ? "deactive--button--container"
+              : "active--button--container "
+          }`}
+        >
           <div className="button-container__outline"></div>
-          <span className="button-container__text">Заказать уборку</span>
+          <div className="button-container__text">Заказать уборку</div>
         </div>
       </div>
     </React.Fragment>

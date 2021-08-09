@@ -1,0 +1,20 @@
+.image1-container {
+  position: relative;
+  margin: 0 auto;
+  height: 630px;
+  max-width: 1094px;
+  width: 100%;
+  margin-bottom: 12em;
+  //   background: url(../../assets/7.png) no-repeat;
+  & span {
+    position: absolute;
+    font-size: 1.5em;
+    font-family: "TTT-Light";
+    padding: 0.5em 1.2em;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+  & span:nth-child(1) {
+    top: 12em;
+  }
+}
