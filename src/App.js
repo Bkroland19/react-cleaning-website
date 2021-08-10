@@ -5,6 +5,7 @@ import Button from "./components/Button/Button";
 import Cards from "./components/Cards/Cards";
 import Text from "./components/Text/Text";
 import Menu from "./components/Menu/Menu";
+import SideMenu from "./components/SideMenu/SideMenu";
 import "./App.scss";
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Cards />
       <Text />
       <Menu />
+      <SideMenu />
     </div>
   );
 }

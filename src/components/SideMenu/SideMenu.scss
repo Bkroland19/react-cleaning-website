@@ -1,0 +1,43 @@
+.sidemenu-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 100vh;
+  background-color: #5a2ff0;
+  & > div {
+    position: relative;
+    width: 100%;
+    color: rgb(194, 188, 188);
+    font-size: 4em;
+    font-family: "TTT-Regular";
+    text-align: left;
+    left: 1.5em;
+    opacity: 0.8;
+  }
+  & > div:not(:nth-last-child(1)) {
+    margin-bottom: 1em;
+  }
+
+  & > div > .icon {
+    transform: translate(-15%, 10%);
+    transition: 0.5s ease;
+  }
+  & > div:hover {
+    color: #fff;
+    opacity: 1;
+    transition: 0.4s ease-in;
+  }
+}
+
+.active {
+  animation: 1s btn ease;
+}
+
+@keyframes btn {
+  from {
+    transform: translateX(-25%, 10%);
+    transition: 0.5s ease;
+  }
+}

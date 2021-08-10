@@ -1,8 +1,11 @@
-.image1-container {
+.image-wrapper {
+}
+
+.image-container {
   position: relative;
   margin: 0 auto;
-  height: 630px;
-  max-width: 1094px;
+  height: 630px; // 630
+  max-width: 1094px; // 1094
   width: 100%;
   margin-bottom: 12em;
   //   background: url(../../assets/7.png) no-repeat;
@@ -17,4 +20,17 @@
   & span:nth-child(1) {
     top: 12em;
   }
+}
+
+.img1 {
+  z-index: 50;
+}
+.img2 {
+  z-index: 40;
+}
+.img3 {
+  z-index: 30;
+}
+.img4 {
+  z-index: 20;
 }
