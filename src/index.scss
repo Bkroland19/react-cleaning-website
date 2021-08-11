@@ -37,11 +37,11 @@ html {
   }
 
   @include respond(tab-port) {
-    font-size: 50%;
+    font-size: 54%; // 50
   }
 
-  @include respond(tab-phone) {
-    font-size: 30%;
+  @include respond(phone) {
+    font-size: 54%;
   }
 
   @include respond(big-desktop) {

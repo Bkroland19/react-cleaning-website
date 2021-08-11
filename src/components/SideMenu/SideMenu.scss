@@ -6,6 +6,8 @@
   width: 400px;
   height: 100vh;
   background-color: #5a2ff0;
+  animation: 2s menu ease;
+
   & > div {
     position: relative;
     width: 100%;
@@ -22,7 +24,6 @@
 
   & > div > .icon {
     transform: translate(-15%, 10%);
-    transition: 0.5s ease;
   }
   & > div:hover {
     color: #fff;
@@ -31,13 +32,35 @@
   }
 }
 
-.active {
-  animation: 1s btn ease;
+.side--active {
+  position: absolute;
+}
+
+@keyframes menu {
+  from {
+    transform: translateX(-35%);
+    opacity: 0.3;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
 }
 
 @keyframes btn {
   from {
     transform: translateX(-25%, 10%);
-    transition: 0.5s ease;
+  }
+}
+
+// Media Screens
+@media screen and(max-width: 900px) {
+  .sidemenu-container {
+    width: 300px;
+  }
+}
+@media screen and(max-width: 600px) {
+  .sidemenu-container {
+    width: 270px;
   }
 }

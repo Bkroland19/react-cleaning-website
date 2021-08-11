@@ -1,0 +1,46 @@
+// .image-wrapper {
+// }
+
+.image-container {
+  position: relative;
+  margin: 0 auto;
+  height: 630px; // 630
+  max-width: 1094px; // 1094
+  width: 100%;
+  margin-bottom: 12em;
+  
+  & span {
+    position: absolute;
+    font-size: 1.5em;
+    font-family: "TTT-Light";
+    padding: 0.5em 1.2em;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+  & span:nth-child(1) {
+    top: 12em;
+  }
+}
+
+.active {
+  transform: translateX(22%);
+  transition: 2.5s ease;
+}
+
+
+.img--1 {
+  opacity: 0;
+}
+
+// .img1 {
+//   z-index: 50;
+// }
+// .img2 {
+//   z-index: 40;
+// }
+// .img3 {
+//   z-index: 30;
+// }
+// .img4 {
+//   z-index: 20;
+// }
