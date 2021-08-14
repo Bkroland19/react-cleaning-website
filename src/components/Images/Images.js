@@ -1,14 +1,19 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useLayoutEffect } from "react";
 import "./Images.scss";
 import img from "../../assets/7.png";
 import img2 from "../../assets/8.png";
 import img3 from "../../assets/9.jpg";
 import img4 from "../../assets/10.jpg";
 
-const Images = ({ showIcon, triggerMenu }) => {
-  const ref = useRef();
+const Images = ({ showIcon, triggerMenu, setShowImg, setImgPs }) => {
   const [img1width, setimg1width] = useState(0);
-
+  const [hover1, setHover1] = useState(false);
+  const [hover2, setHover2] = useState(false);
+  const [hover3, setHover3] = useState(false);
+  const [hover4, setHover4] = useState(false);
+  const [hover5, setHover5] = useState(false);
+  const [hover6, setHover6] = useState(false);
+  const [hover7, setHover7] = useState(false);
   useEffect(() => {
     const img1 = document.querySelector(".refref");
     setimg1width(img1.clientWidth);
@@ -20,6 +25,21 @@ const Images = ({ showIcon, triggerMenu }) => {
     setimg1width(imgWidth);
   };
   window.addEventListener("resize", calcwidth);
+
+  // useLayoutEffect(() => {
+  //   const imgPosition = document
+  //     .querySelector(".image-container")
+  //     .getBoundingClientRect().top;
+  //     console.log(imgPosition);
+  //   const sd = () => {
+  //     const scrollPosition = window.scrollY + window.offSetHeight;
+  //     if (imgPosition < scrollPosition) {
+  //       setImgPs(imgPosition);
+  //     }
+  //   };
+  //   window.addEventListener("scroll", sd);
+  //   return () => window.removeEventListener("scroll", sd);
+  // }, []);
 
   return (
     <React.Fragment>
@@ -35,7 +55,10 @@ const Images = ({ showIcon, triggerMenu }) => {
 
         {triggerMenu && (
           <>
-            <div>
+            <div
+              onMouseEnter={() => setHover1(true)}
+              onMouseLeave={() => setHover1(false)}
+            >
               <div
                 style={{ left: img1width / 3 + "px" }}
                 className="plus"
@@ -43,74 +66,119 @@ const Images = ({ showIcon, triggerMenu }) => {
             </div>
 
             <div>
-              <div style={{ left: img1width / 3.9 + "px" }}>
-                {showIcon == 1 && <span>Чистим фасад вытяжки</span>}
-              </div>
+              {hover1 && (
+                <div style={{ left: img1width / 3.9 + "px" }}>
+                  <span>Чистим фасад вытяжки</span>
+                </div>
+              )}
             </div>
-            <div>
+
+            <div
+              onMouseEnter={() => setHover2(true)}
+              onMouseLeave={() => setHover2(false)}
+            >
               <div
                 style={{ left: img1width / 2.8 + "px" }}
                 className="plus"
               ></div>
             </div>
 
-            <div style={{ left: img1width / 3.3 + "px" }}>
-              {showIcon == 1 && <span>Чистим плитку</span>}
+            <div>
+              {hover2 && (
+                <div style={{ left: img1width / 3.3 + "px" }}>
+                  <span>Чистим плитку</span>
+                </div>
+              )}
             </div>
 
-            <div>
+            <div
+              onMouseEnter={() => setHover3(true)}
+              onMouseLeave={() => setHover3(false)}
+            >
               <div
                 style={{ left: img1width / 2.9 + "px" }}
                 className="plus"
               ></div>
             </div>
 
-            <div style={{ left: img1width / 3.2 + "px" }}>
-              {showIcon == 1 && <span>Моем пол</span>}
+            <div>
+              {hover3 && (
+                <div style={{ left: img1width / 3.2 + "px" }}>
+                  <span>Моем пол</span>
+                </div>
+              )}
             </div>
 
-            <div>
+            <div
+              onMouseEnter={() => setHover4(true)}
+              onMouseLeave={() => setHover4(false)}
+            >
               <div
                 style={{ left: img1width / 1.9 + "px" }}
                 className="plus"
               ></div>
             </div>
 
-            <div style={{ left: img1width / 2.1 + "px" }}>
-              {showIcon == 1 && <span>Выносим мусор</span>}
+            <div>
+              {hover4 && (
+                <div style={{ left: img1width / 2.1 + "px" }}>
+                  <span>Выносим мусор</span>
+                </div>
+              )}
             </div>
 
-            <div>
+            <div
+              onMouseEnter={() => setHover5(true)}
+              onMouseLeave={() => setHover5(false)}
+            >
               <div
                 style={{ left: img1width / 1.8 + "px" }}
                 className="plus"
               ></div>
             </div>
 
-            <div style={{ left: img1width / 2.1 + "px" }}>
-              {showIcon == 1 && <span>Протираем столешницу</span>}
+            <div>
+              {hover5 && (
+                <div style={{ left: img1width / 2.1 + "px" }}>
+                  <span>Протираем столешницу</span>
+                </div>
+              )}
             </div>
 
-            <div>
+            <div
+              onMouseEnter={() => setHover6(true)}
+              onMouseLeave={() => setHover6(false)}
+            >
               <div
                 style={{ left: img1width / 1.6 + "px" }}
                 className="plus"
               ></div>
             </div>
 
-            <div style={{ left: img1width / 2 + "px" }}>
-              {showIcon == 1 && <span>Моем фасады кухонных гарнитуров</span>}
+            <div>
+              {hover6 && (
+                <div style={{ left: img1width / 2 + "px" }}>
+                  <span>Моем фасады кухонных гарнитуров</span>
+                </div>
+              )}
             </div>
 
-            <div>
+            <div
+              onMouseEnter={() => setHover7(true)}
+              onMouseLeave={() => setHover7(false)}
+            >
               <div
                 style={{ left: img1width / 1.3 + "px" }}
                 className="plus"
               ></div>
             </div>
 
-            <div style={{ left: img1width / 1.4 + "px" }}>
-              {showIcon == 1 && <span>Моем посуду</span>}
+            <div>
+              {hover7 && (
+                <div style={{ left: img1width / 1.4 + "px" }}>
+                  <span>Моем посуду</span>
+                </div>
+              )}
             </div>
           </>
         )}

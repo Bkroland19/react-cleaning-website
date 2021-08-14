@@ -152,28 +152,23 @@
   opacity: 0;
 }
 
-// .img--1 {
-//   opacity: 0;
-// }
+@keyframes back-img {
+  from {
+    transform: translateX(105%);
+  }
+  to {
+    transform: translateX(30%);
+  }
+}
 
-// @keyframes back-img {
-//   // sikinti
-//   from {
-//     transform: translateX(105%);
-//   }
-//   to {
-//     transform: translateX(30%);
-//   }
-// }
-
-// @keyframes img--1 {
-//   from {
-//     transform: translateX(30%);
-//   }
-//   to {
-//     transform: translateX(49%);
-//   }
-// }
+@keyframes img--1 {
+  from {
+    transform: translateX(30%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
 
 // @keyframes img {
 //   from {
