@@ -1,46 +1,238 @@
-// .image-wrapper {
-// }
-
 .image-container {
   position: relative;
   margin: 0 auto;
-  height: 630px; // 630
+  // height: 630px; // 630
   max-width: 1094px; // 1094
   width: 100%;
   margin-bottom: 12em;
-  
+  transform: translateX(0%);
+  transition: 1.5s ease;
+  & :nth-child(2) {
+    position: absolute;
+    top: 230px;
+    left: 359px;
+    // top: 190px;
+    // left: 240px;
+  }
   & span {
+    opacity: 0;
     position: absolute;
     font-size: 1.5em;
     font-family: "TTT-Light";
-    padding: 0.5em 1.2em;
+    padding: 0.5em 1em;
     background-color: #fff;
     border-radius: 5px;
+    z-index: 20;
   }
-  & span:nth-child(1) {
-    top: 12em;
+  & span::before {
+    content: "";
+    position: absolute;
+    bottom: -17px;
+    left: 45%;
+    border: 10px solid transparent;
+    border-top-color: #fff;
+  }
+  & :nth-child(3) {
+    // 2 div
+    width: 100%;
+    max-width: auto;
+    position: absolute;
+    top: 198px;
+    left: 257px;
+    // top: 330px;
+    // left: 290px;
+  }
+  & :nth-child(4) {
+    position: absolute;
+    top: 365px;
+    left: 356px;
+    // top: 535px;
+    // left: 310px;
+  }
+  & :nth-child(5) {
+    position: absolute;
+    width: 100%;
+    top: 333px;
+    left: 290px;
+  }
+  & :nth-child(6) {
+    position: absolute;
+    top: 555px;
+    left: 390px;
+  }
+  & :nth-child(7) {
+    position: absolute;
+    width: 100%;
+    top: 520px;
+    left: 344px;
+  }
+  & :nth-child(8) {
+    position: absolute;
+    top: 390px;
+    left: 540px;
+  }
+  & :nth-child(9) {
+    position: absolute;
+    width: 100%;
+    top: 357px;
+    left: 468px;
+  }
+  & :nth-child(10) {
+    position: absolute;
+    top: 505px;
+    left: 607px;
+  }
+  & :nth-child(11) {
+    position: absolute;
+    width: 100%;
+    top: 477px;
+    left: 500px;
+  }
+  & :nth-child(12) {
+    position: absolute;
+    top: 285px;
+    left: 680px;
+  }
+  & :nth-child(13) {
+    position: absolute;
+    width: 100%;
+    top: 250px;
+    left: 527px;
+  }
+  & :nth-child(14) {
+    position: absolute;
+    top: 400px;
+    left: 850px;
+  }
+  & :nth-child(15) {
+    position: absolute;
+    width: 100%;
+    top: 365px;
+    left: 789px;
   }
 }
+
+// @media screen and(max-width: 1200px) {
+//   .image-container {
+//     max-width: 600px;
+//   }
+// }
+// .aassdd {
+//   position: absolute;
+//   top: 0px;
+//   left: 359px;
+// }
 
 .active {
-  transform: translateX(22%);
-  transition: 2.5s ease;
+  position: absolute;
+  transform: translateX(49%);
+  animation: 1.5s img ease;
 }
 
+.active--img1 {
+  position: absolute;
+  transform: translateX(49%);
+  animation: 1.5s img--1 ease;
+}
+
+// .back--img1{ // sikinti
+//   // position: absolute;
+//   // transform: translateX(105%);
+//   animation: 1.5s back-img ease;
+// }
+
+.deactive {
+  opacity: 0;
+}
 
 .img--1 {
   opacity: 0;
 }
 
-// .img1 {
-//   z-index: 50;
-// }
-// .img2 {
-//   z-index: 40;
-// }
-// .img3 {
-//   z-index: 30;
-// }
-// .img4 {
-//   z-index: 20;
-// }
+@keyframes back-img {
+  // sikinti
+  from {
+    transform: translateX(105%);
+  }
+  to {
+    transform: translateX(30%);
+  }
+}
+
+@keyframes img--1 {
+  from {
+    transform: translateX(30%);
+  }
+  to {
+    transform: translateX(49%);
+  }
+}
+
+@keyframes img {
+  from {
+    transform: translateX(75%);
+  }
+  to {
+    transform: translateX(49%);
+  }
+}
+
+.plus {
+  margin-top: 25px;
+  left: 42%;
+  position: absolute;
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(#5a2ff0, #a18bf1);
+  border-radius: 50%;
+  animation: pulse 1.1s infinite;
+}
+.plus:before,
+.plus:after {
+  content: "";
+  position: absolute;
+  background: #fff;
+}
+.plus:before {
+  left: 50%;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  transform: translateX(-50%);
+}
+.plus:after {
+  top: 50%;
+  left: 6px;
+  right: 6px;
+  height: 2px;
+  transform: translateY(-50%);
+}
+
+.plus:hover {
+  cursor: pointer;
+  animation: turn 1s forwards;
+}
+
+.plus:hover .zpan {
+  opacity: 1;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0px #c7b8fc;
+    transform: scale(1);
+  }
+  85% {
+    box-shadow: 0 0 0 12px #d5cbf8;
+    transform: scale(1);
+  }
+  100% {
+    box-shadow: 0 0 0 12px #e2dafd;
+    transform: scale(1);
+  }
+}
+@keyframes turn {
+  to {
+    transform: rotate(225deg);
+  }
+}

@@ -15,7 +15,7 @@ const SideMenu = ({ triggerMenu, showIcon, setShowIcon }) => {
           <div onClick={() => buttonClickHandler(1)}>
             {showIcon == 1 && (
               <BsArrowRight
-                className={`icon ${showIcon == 1 ? "active" : ""}`}
+                className={`icon ${showIcon == 1 ? "icon" : ""}`}
               />
             )}
             Кухня
