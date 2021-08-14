@@ -6,72 +6,114 @@ import img3 from "../../assets/9.jpg";
 import img4 from "../../assets/10.jpg";
 
 const Images = ({ showIcon, triggerMenu }) => {
-  // const ref = useRef();
-  // const [img1width, setimg1width] = useState(0);
+  const ref = useRef();
+  const [img1width, setimg1width] = useState(0);
 
-  // useEffect(() => {
-  //   const imgWidth = ref.current.offsetWidth;
-  //   setimg1width(imgWidth);
-  //   const imgHeight = img.offsetHeight;
-  // }, []);
+  useEffect(() => {
+    const img1 = document.querySelector(".refref");
+    setimg1width(img1.clientWidth);
+  }, []);
 
-  // const calcwidth = () => {
-  //   const img1 = document.querySelector(".img1");
-  //   const imgWidth = img1.offsetWidth;
-  //   setimg1width(imgWidth);
-  // };
-  // window.addEventListener("resize", calcwidth);
+  const calcwidth = () => {
+    const img1 = document.querySelector(".refref");
+    const imgWidth = img1.clientWidth;
+    setimg1width(imgWidth);
+  };
+  window.addEventListener("resize", calcwidth);
 
   return (
     <React.Fragment>
       <div className={`image-container ${triggerMenu ? "active--img1" : ""}`}>
-        <img
-          className={`${showIcon !== 1 && showIcon !== 0 ? "deactive" : ""}`}
-          src={img}
-        />
         <div>
-          <div className="plus"></div>
+          <img
+            className={`refref ${
+              showIcon !== 1 && showIcon !== 0 ? "deactive" : ""
+            }`}
+            src={img}
+          />
         </div>
 
-        <div><span className="zpan">Чистим фасад вытяжки</span></div>
-// onHover ile dene
-        <div>
-          <div className="plus"></div>
-        </div>
+        {triggerMenu && (
+          <>
+            <div>
+              <div
+                style={{ left: img1width / 3 + "px" }}
+                className="plus"
+              ></div>
+            </div>
 
-        <div>{showIcon == 1 && <span>Чистим плитку</span>}</div>
+            <div>
+              <div style={{ left: img1width / 3.9 + "px" }}>
+                {showIcon == 1 && <span>Чистим фасад вытяжки</span>}
+              </div>
+            </div>
+            <div>
+              <div
+                style={{ left: img1width / 2.8 + "px" }}
+                className="plus"
+              ></div>
+            </div>
 
-        <div>
-          <div className="plus"></div>
-        </div>
+            <div style={{ left: img1width / 3.3 + "px" }}>
+              {showIcon == 1 && <span>Чистим плитку</span>}
+            </div>
 
-        <div>{showIcon == 1 && <span>Моем пол</span>}</div>
+            <div>
+              <div
+                style={{ left: img1width / 2.9 + "px" }}
+                className="plus"
+              ></div>
+            </div>
 
-        <div>
-          <div className="plus"></div>
-        </div>
+            <div style={{ left: img1width / 3.2 + "px" }}>
+              {showIcon == 1 && <span>Моем пол</span>}
+            </div>
 
-        <div>{showIcon == 1 && <span>Выносим мусор</span>}</div>
+            <div>
+              <div
+                style={{ left: img1width / 1.9 + "px" }}
+                className="plus"
+              ></div>
+            </div>
 
-        <div>
-          <div className="plus"></div>
-        </div>
+            <div style={{ left: img1width / 2.1 + "px" }}>
+              {showIcon == 1 && <span>Выносим мусор</span>}
+            </div>
 
-        <div>{showIcon == 1 && <span>Протираем столешницу</span>}</div>
+            <div>
+              <div
+                style={{ left: img1width / 1.8 + "px" }}
+                className="plus"
+              ></div>
+            </div>
 
-        <div>
-          <div className="plus"></div>
-        </div>
+            <div style={{ left: img1width / 2.1 + "px" }}>
+              {showIcon == 1 && <span>Протираем столешницу</span>}
+            </div>
 
-        <div>
-          {showIcon == 1 && <span>Моем фасады кухонных гарнитуров</span>}
-        </div>
+            <div>
+              <div
+                style={{ left: img1width / 1.6 + "px" }}
+                className="plus"
+              ></div>
+            </div>
 
-        <div>
-          <div className="plus"></div>
-        </div>
+            <div style={{ left: img1width / 2 + "px" }}>
+              {showIcon == 1 && <span>Моем фасады кухонных гарнитуров</span>}
+            </div>
 
-        <div>{showIcon == 1 && <span>Моем посуду</span>}</div>
+            <div>
+              <div
+                style={{ left: img1width / 1.3 + "px" }}
+                className="plus"
+              ></div>
+            </div>
+
+            <div style={{ left: img1width / 1.4 + "px" }}>
+              {showIcon == 1 && <span>Моем посуду</span>}
+            </div>
+          </>
+        )}
       </div>
 
       {showIcon == 2 && (

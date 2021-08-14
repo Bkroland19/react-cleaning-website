@@ -9,13 +9,12 @@ const Menu = () => {
   const [showIcon, setShowIcon] = useState(0);
 
   useEffect(() => {
-    scPosition > 2500 ? setTriggerMenu(true) : setTriggerMenu(false);
+    scPosition > 1800 ? setTriggerMenu(true) : setTriggerMenu(false);
     //4263
 
     const scrollHandler = () => {
       let pageScroll = window.innerHeight + window.scrollY;
       setScPosition(pageScroll);
-      console.log(pageScroll);
     };
 
     window.addEventListener("scroll", scrollHandler);
