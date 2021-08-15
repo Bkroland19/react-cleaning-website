@@ -4,6 +4,7 @@ import img from "../../assets/7.png";
 import img2 from "../../assets/8.png";
 import img3 from "../../assets/9.jpg";
 import img4 from "../../assets/10.jpg";
+// import { className } from "postcss-selector-parser";
 
 const Images = ({ showIcon, triggerMenu, setShowImg, setImgPs }) => {
   const [img1width, setimg1width] = useState(0);
@@ -43,10 +44,14 @@ const Images = ({ showIcon, triggerMenu, setShowImg, setImgPs }) => {
 
   return (
     <React.Fragment>
-      <div className={`image-container ${triggerMenu ? "active--img1" : ""}`}>
+      <div
+        className={`image-container refref ${
+          triggerMenu ? "active--img1" : ""
+        } ${showIcon !== 1 && showIcon !== 0 ? "deactive" : ""}`}
+      >
         <div>
           <img
-            className={`refref ${
+            className={`img--1 ${
               showIcon !== 1 && showIcon !== 0 ? "deactive" : ""
             }`}
             src={img}
@@ -55,14 +60,18 @@ const Images = ({ showIcon, triggerMenu, setShowImg, setImgPs }) => {
 
         {triggerMenu && (
           <>
-            <div
-              onMouseEnter={() => setHover1(true)}
-              onMouseLeave={() => setHover1(false)}
-            >
-              <div
-                style={{ left: img1width / 3 + "px" }}
-                className="plus"
-              ></div>
+            <div>
+              {showIcon === 1 && (
+                <div
+                  onMouseEnter={() => setHover1(true)}
+                  onMouseLeave={() => setHover1(false)}
+                >
+                  <div
+                    style={{ left: img1width / 3 + "px" }}
+                    className="plus"
+                  ></div>
+                </div>
+              )}
             </div>
 
             <div>
@@ -73,14 +82,18 @@ const Images = ({ showIcon, triggerMenu, setShowImg, setImgPs }) => {
               )}
             </div>
 
-            <div
-              onMouseEnter={() => setHover2(true)}
-              onMouseLeave={() => setHover2(false)}
-            >
-              <div
-                style={{ left: img1width / 2.8 + "px" }}
-                className="plus"
-              ></div>
+            <div>
+              {showIcon === 1 && (
+                <div
+                  onMouseEnter={() => setHover2(true)}
+                  onMouseLeave={() => setHover2(false)}
+                >
+                  <div
+                    style={{ left: img1width / 2.8 + "px" }}
+                    className="plus"
+                  ></div>
+                </div>
+              )}
             </div>
 
             <div>
@@ -91,32 +104,40 @@ const Images = ({ showIcon, triggerMenu, setShowImg, setImgPs }) => {
               )}
             </div>
 
-            <div
-              onMouseEnter={() => setHover3(true)}
-              onMouseLeave={() => setHover3(false)}
-            >
-              <div
-                style={{ left: img1width / 2.9 + "px" }}
-                className="plus"
-              ></div>
+            <div>
+              {showIcon === 1 && (
+                <div
+                  onMouseEnter={() => setHover3(true)}
+                  onMouseLeave={() => setHover3(false)}
+                >
+                  <div
+                    style={{ left: img1width / 2.9 + "px" }}
+                    className="plus"
+                  ></div>
+                </div>
+              )}
             </div>
 
             <div>
               {hover3 && (
-                <div style={{ left: img1width / 3.2 + "px" }}>
+                <div style={{ left: img1width / 3.22 + "px" }}>
                   <span>Моем пол</span>
                 </div>
               )}
             </div>
 
-            <div
-              onMouseEnter={() => setHover4(true)}
-              onMouseLeave={() => setHover4(false)}
-            >
-              <div
-                style={{ left: img1width / 1.9 + "px" }}
-                className="plus"
-              ></div>
+            <div>
+              {showIcon === 1 && (
+                <div
+                  onMouseEnter={() => setHover4(true)}
+                  onMouseLeave={() => setHover4(false)}
+                >
+                  <div
+                    style={{ left: img1width / 1.9 + "px" }}
+                    className="plus"
+                  ></div>
+                </div>
+              )}
             </div>
 
             <div>
@@ -127,14 +148,18 @@ const Images = ({ showIcon, triggerMenu, setShowImg, setImgPs }) => {
               )}
             </div>
 
-            <div
-              onMouseEnter={() => setHover5(true)}
-              onMouseLeave={() => setHover5(false)}
-            >
-              <div
-                style={{ left: img1width / 1.8 + "px" }}
-                className="plus"
-              ></div>
+            <div>
+              {showIcon === 1 && (
+                <div
+                  onMouseEnter={() => setHover5(true)}
+                  onMouseLeave={() => setHover5(false)}
+                >
+                  <div
+                    style={{ left: img1width / 1.8 + "px" }}
+                    className="plus"
+                  ></div>
+                </div>
+              )}
             </div>
 
             <div>
@@ -145,37 +170,45 @@ const Images = ({ showIcon, triggerMenu, setShowImg, setImgPs }) => {
               )}
             </div>
 
-            <div
-              onMouseEnter={() => setHover6(true)}
-              onMouseLeave={() => setHover6(false)}
-            >
-              <div
-                style={{ left: img1width / 1.6 + "px" }}
-                className="plus"
-              ></div>
+            <div>
+              {showIcon === 1 && (
+                <div
+                  onMouseEnter={() => setHover6(true)}
+                  onMouseLeave={() => setHover6(false)}
+                >
+                  <div
+                    style={{ left: img1width / 1.6 + "px" }}
+                    className="plus"
+                  ></div>
+                </div>
+              )}
             </div>
 
             <div>
               {hover6 && (
-                <div style={{ left: img1width / 2 + "px" }}>
+                <div style={{ left: img1width / 1.96 + "px" }}>
                   <span>Моем фасады кухонных гарнитуров</span>
                 </div>
               )}
             </div>
 
-            <div
-              onMouseEnter={() => setHover7(true)}
-              onMouseLeave={() => setHover7(false)}
-            >
-              <div
-                style={{ left: img1width / 1.3 + "px" }}
-                className="plus"
-              ></div>
+            <div>
+              {showIcon === 1 && (
+                <div
+                  onMouseEnter={() => setHover7(true)}
+                  onMouseLeave={() => setHover7(false)}
+                >
+                  <div
+                    style={{ left: img1width / 1.3 + "px" }}
+                    className="plus"
+                  ></div>
+                </div>
+              )}
             </div>
 
             <div>
               {hover7 && (
-                <div style={{ left: img1width / 1.4 + "px" }}>
+                <div style={{ left: img1width / 1.38 + "px" }}>
                   <span>Моем посуду</span>
                 </div>
               )}
@@ -185,44 +218,36 @@ const Images = ({ showIcon, triggerMenu, setShowImg, setImgPs }) => {
       </div>
 
       {showIcon == 2 && (
-        <div className={`image-container ${showIcon == 2 ? "active" : ""}`}>
-          <img
-            className="img2"
-            src={img2}
-            style={{ width: "100%", height: "630px" }}
-          />
-          <span>Чистим фасад зеркала</span>
+        <div
+          className={`image-container ${showIcon == 2 ? "active--img1" : ""}`}
+        >
+          <img className="img2" src={img2} />
+          {/* <span>Чистим фасад зеркала</span>
           <span>Чистим ракавены</span>
           <span>Чистим туалет</span>
-          <span>Чистим ванное</span>
+          <span>Чистим ванное</span> */}
         </div>
       )}
 
       {showIcon == 3 && (
-        <div className={`image-container ${showIcon == 3 ? "active" : ""}`}>
-          <img
-            className="img3"
-            src={img3}
-            style={{ width: "100%", height: "630px" }}
-          />
-          <span>Чистим стены</span>
+        <div
+          className={`image-container ${showIcon == 3 ? "active--img1" : ""}`}
+        >
+          <img className="img3" src={img3} />
+          {/* <span>Чистим стены</span>
           <span>Моем диван</span>
           <span>Протираем любое пространство</span>
-          <span>Моем ковёр</span>
+          <span>Моем ковёр</span> */}
         </div>
       )}
 
       {showIcon == 4 && (
-        <div className={`image-container ${showIcon == 4 ? "active" : ""}`}>
-          <img
-            className="img4"
-            src={img4}
-            style={{ width: "100%", height: "630px" }}
-          />
-          <span>Чистим фасад зеркала</span>
+        <div className={`image-container ${showIcon == 4 ? "active--img1" : ""}`}>
+          <img className="img4" src={img4} />
+          {/* <span>Чистим фасад зеркала</span>
           <span>Чистим ракавены</span>
           <span>Чистим туалет</span>
-          <span>Чистим ванное</span>
+          <span>Чистим ванное</span> */}
         </div>
       )}
     </React.Fragment>

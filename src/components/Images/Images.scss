@@ -3,16 +3,16 @@
   margin: 0 auto;
   overflow: hidden;
   & > div {
-
   }
   & :nth-child(1) {
     position: relative;
     width: 100%;
-    height: auto;
+    height: 100vh;
   }
   & :nth-child(2) {
     position: absolute;
     top: 290px;
+    z-index: 11;
     // top: 190px;
     // left: 240px;
   }
@@ -45,17 +45,20 @@
   & :nth-child(4) {
     position: absolute;
     top: 465px;
+    z-index: 11;
     // left: 356px;
   }
   & :nth-child(5) {
     position: absolute;
     width: 100%;
     top: 445px;
+
     // left: 290px;
   }
   & :nth-child(6) {
     position: absolute;
     top: 775px;
+    z-index: 11;
     // left: 390px;
   }
   & :nth-child(7) {
@@ -67,6 +70,7 @@
   & :nth-child(8) {
     position: absolute;
     top: 490px;
+    z-index: 11;
     // left: 540px;
   }
   & :nth-child(9) {
@@ -78,6 +82,7 @@
   & :nth-child(10) {
     position: absolute;
     top: 650px;
+    z-index: 11;
     // left: 607px;
   }
   & :nth-child(11) {
@@ -89,6 +94,7 @@
   & :nth-child(12) {
     position: absolute;
     top: 400px;
+    z-index: 11;
     // left: 680px;
   }
   & :nth-child(13) {
@@ -100,6 +106,7 @@
   & :nth-child(14) {
     position: absolute;
     top: 565px;
+    z-index: 11;
     // left: 850px;
   }
   & :nth-child(15) {
@@ -136,12 +143,18 @@
   transition: 1.5s ease;
   animation: 1.5s img--1 ease;
   overflow: hidden;
+  z-index: 22;
 }
 
 .active--img1 div img {
   height: 100vh !important;
 }
-
+.img--1 {
+  z-index: 10;
+}
+.img--2 {
+  z-index: 20;
+}
 // .back--img1{ // sikinti
 //   // position: absolute;
 //   // transform: translateX(105%);
@@ -149,7 +162,7 @@
 // }
 
 .deactive {
-  opacity: 0;
+  display: none;
 }
 
 @keyframes back-img {
@@ -237,4 +250,8 @@
   to {
     transform: rotate(225deg);
   }
+}
+
+.none {
+  display: none;
 }
