@@ -2,13 +2,15 @@
   // width: calc(100% - 710px);
   display: flex;
   // width: 80%;
-  height: 100vh;
+  // height: 100vh; // asdasdas
   // width: 100%;
   // flex: 2 1 200px;
 }
 
-// @media screen and(max-width: 1200px) {
-//   .menu-container {
-//     max-width: 800px;
-//   }
-// }
+@media screen and(max-width: 900px) {
+  .menu-container {
+    // position: relative;
+    // display: block;
+    // height: 80vh;
+  }
+}

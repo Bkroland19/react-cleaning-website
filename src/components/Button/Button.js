@@ -45,6 +45,10 @@ function Button() {
       btn.addEventListener("mouseout", mouseOut, false);
     }
 
+    scrollPosition > window.innerHeight + 1100
+      ? (btn.style.display = "none")
+      : (btn.style.display = "block");
+
     const scroolCatch = () => {
       let pos = window.innerHeight + window.scrollY;
       setScrollPosition(pos);

@@ -63,3 +63,19 @@
     transform: translateY(-25px);
   }
 }
+
+@media screen and(max-width: 1200px) {
+  .wrapper {
+    width: 130px;
+    height: 130px;
+  }
+  .button-container{
+    &__text {
+      top: 60px;
+    }
+  }
+}
+
+
+// tinder
+// airbnb

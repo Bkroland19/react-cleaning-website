@@ -5,7 +5,6 @@
   height: 100vh;
   // position: absolute;
 }
-
 .sidemenu-container {
   display: flex;
   flex-direction: column;
@@ -15,7 +14,6 @@
   height: auto;
   background-color: #5a2ff0;
   animation: 2s menu ease;
-
   & > div {
     position: relative;
     width: 100%;
@@ -40,18 +38,16 @@
   }
 }
 
-
-
-// @keyframes menu {
-//   from {
-//     transform: translateX(-35%);
-//     opacity: 0.3;
-//   }
-//   to {
-//     transform: translateX(0%);
-//     opacity: 1;
-//   }
-// }
+@keyframes menu {
+  from {
+    transform: translateX(-35%);
+    opacity: 0.3;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
 
 // @keyframes btn {
 //   from {
@@ -59,19 +55,41 @@
 //   }
 // }
 
-// Media Screens
-// @media screen and(max-width: 1200px) {
-//   .sidemenu-container {
-//     width: 275px;
-//   }
+//Media Screens
+@media screen and(max-width: 1200px) {
+  // .sidemenu-container {
+  //   width: 275px;
+  // }
+  .side--active {
+    // position: absolute;
+  }
+}
+// 900 den asagi burger menu gelecek
+@media screen and(max-width: 900px) {
+  .side--active {
+    display: block;
+    position: absolute;
+    z-index: 200;
+    height: auto;
+  }
+}
+
+.container {
+  position: absolute;
+  top: 5em;
+  left: 2.5em;
+}
+// .small-sidemenu {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
 // }
-// @media screen and(max-width: 900px) {
-//   .sidemenu-container {
-//     width: 20px;
-//   }
-// }
-// @media screen and(max-width: 600px) {
-//   .sidemenu-container {
-//     width: 230px;
-//   }
-// }
+
+.hamburger-menu {
+  cursor: pointer;
+  font-size: 5em;
+}
+
+
+////////////////////////
+

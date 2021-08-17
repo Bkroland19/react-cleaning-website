@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useLayoutEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./Images.scss";
 import img from "../../assets/7.png";
 import img2 from "../../assets/8.png";
@@ -6,8 +6,8 @@ import img3 from "../../assets/9.jpg";
 import img4 from "../../assets/10.jpg";
 // import { className } from "postcss-selector-parser";
 
-const Images = ({ showIcon, triggerMenu, setShowImg, setImgPs }) => {
-  const [img1width, setimg1width] = useState(0);
+const Images = ({ showIcon, triggerMenu, smallScreen }, ref) => {
+  const [imgWidthPosition, setImgWidthPosition] = useState(0);
   const [hover1, setHover1] = useState(false);
   const [hover2, setHover2] = useState(false);
   const [hover3, setHover3] = useState(false);
@@ -15,39 +15,28 @@ const Images = ({ showIcon, triggerMenu, setShowImg, setImgPs }) => {
   const [hover5, setHover5] = useState(false);
   const [hover6, setHover6] = useState(false);
   const [hover7, setHover7] = useState(false);
+  // console.log(ref);
   useEffect(() => {
-    const img1 = document.querySelector(".refref");
-    setimg1width(img1.clientWidth);
+    const imgEl = document.querySelector(".refref");
+    setImgWidthPosition(imgEl.clientWidth);
   }, []);
 
   const calcwidth = () => {
-    const img1 = document.querySelector(".refref");
-    const imgWidth = img1.clientWidth;
-    setimg1width(imgWidth);
+    const imgEl = document.querySelector(".refref");
+    const imgWidth = imgEl.clientWidth;
+    setImgWidthPosition(imgWidth);
   };
   window.addEventListener("resize", calcwidth);
-
-  // useLayoutEffect(() => {
-  //   const imgPosition = document
-  //     .querySelector(".image-container")
-  //     .getBoundingClientRect().top;
-  //     console.log(imgPosition);
-  //   const sd = () => {
-  //     const scrollPosition = window.scrollY + window.offSetHeight;
-  //     if (imgPosition < scrollPosition) {
-  //       setImgPs(imgPosition);
-  //     }
-  //   };
-  //   window.addEventListener("scroll", sd);
-  //   return () => window.removeEventListener("scroll", sd);
-  // }, []);
 
   return (
     <React.Fragment>
       <div
+        ref={ref}
         className={`image-container refref ${
           triggerMenu ? "active--img1" : ""
-        } ${showIcon !== 1 && showIcon !== 0 ? "deactive" : ""}`}
+        } ${showIcon !== 1 && showIcon !== 0 ? "deactive" : ""} ${
+          smallScreen ? "small" : ""
+        }`}
       >
         <div>
           <img
@@ -58,7 +47,7 @@ const Images = ({ showIcon, triggerMenu, setShowImg, setImgPs }) => {
           />
         </div>
 
-        {triggerMenu && (
+        {triggerMenu && !smallScreen && (
           <>
             <div>
               {showIcon === 1 && (
@@ -67,7 +56,7 @@ const Images = ({ showIcon, triggerMenu, setShowImg, setImgPs }) => {
                   onMouseLeave={() => setHover1(false)}
                 >
                   <div
-                    style={{ left: img1width / 3 + "px" }}
+                    style={{ left: imgWidthPosition / 3 + "px" }}
                     className="plus"
                   ></div>
                 </div>
@@ -76,7 +65,7 @@ const Images = ({ showIcon, triggerMenu, setShowImg, setImgPs }) => {
 
             <div>
               {hover1 && (
-                <div style={{ left: img1width / 3.9 + "px" }}>
+                <div style={{ left: imgWidthPosition / 3.9 + "px" }}>
                   <span>Чистим фасад вытяжки</span>
                 </div>
               )}
@@ -89,7 +78,7 @@ const Images = ({ showIcon, triggerMenu, setShowImg, setImgPs }) => {
                   onMouseLeave={() => setHover2(false)}
                 >
                   <div
-                    style={{ left: img1width / 2.8 + "px" }}
+                    style={{ left: imgWidthPosition / 2.8 + "px" }}
                     className="plus"
                   ></div>
                 </div>
@@ -98,7 +87,7 @@ const Images = ({ showIcon, triggerMenu, setShowImg, setImgPs }) => {
 
             <div>
               {hover2 && (
-                <div style={{ left: img1width / 3.3 + "px" }}>
+                <div style={{ left: imgWidthPosition / 3.3 + "px" }}>
                   <span>Чистим плитку</span>
                 </div>
               )}
@@ -111,7 +100,7 @@ const Images = ({ showIcon, triggerMenu, setShowImg, setImgPs }) => {
                   onMouseLeave={() => setHover3(false)}
                 >
                   <div
-                    style={{ left: img1width / 2.9 + "px" }}
+                    style={{ left: imgWidthPosition / 2.9 + "px" }}
                     className="plus"
                   ></div>
                 </div>
@@ -120,7 +109,7 @@ const Images = ({ showIcon, triggerMenu, setShowImg, setImgPs }) => {
 
             <div>
               {hover3 && (
-                <div style={{ left: img1width / 3.22 + "px" }}>
+                <div style={{ left: imgWidthPosition / 3.22 + "px" }}>
                   <span>Моем пол</span>
                 </div>
               )}
@@ -133,7 +122,7 @@ const Images = ({ showIcon, triggerMenu, setShowImg, setImgPs }) => {
                   onMouseLeave={() => setHover4(false)}
                 >
                   <div
-                    style={{ left: img1width / 1.9 + "px" }}
+                    style={{ left: imgWidthPosition / 1.9 + "px" }}
                     className="plus"
                   ></div>
                 </div>
@@ -142,7 +131,7 @@ const Images = ({ showIcon, triggerMenu, setShowImg, setImgPs }) => {
 
             <div>
               {hover4 && (
-                <div style={{ left: img1width / 2.1 + "px" }}>
+                <div style={{ left: imgWidthPosition / 2.1 + "px" }}>
                   <span>Выносим мусор</span>
                 </div>
               )}
@@ -155,7 +144,7 @@ const Images = ({ showIcon, triggerMenu, setShowImg, setImgPs }) => {
                   onMouseLeave={() => setHover5(false)}
                 >
                   <div
-                    style={{ left: img1width / 1.8 + "px" }}
+                    style={{ left: imgWidthPosition / 1.8 + "px" }}
                     className="plus"
                   ></div>
                 </div>
@@ -164,7 +153,7 @@ const Images = ({ showIcon, triggerMenu, setShowImg, setImgPs }) => {
 
             <div>
               {hover5 && (
-                <div style={{ left: img1width / 2.1 + "px" }}>
+                <div style={{ left: imgWidthPosition / 2.1 + "px" }}>
                   <span>Протираем столешницу</span>
                 </div>
               )}
@@ -177,7 +166,7 @@ const Images = ({ showIcon, triggerMenu, setShowImg, setImgPs }) => {
                   onMouseLeave={() => setHover6(false)}
                 >
                   <div
-                    style={{ left: img1width / 1.6 + "px" }}
+                    style={{ left: imgWidthPosition / 1.6 + "px" }}
                     className="plus"
                   ></div>
                 </div>
@@ -186,7 +175,7 @@ const Images = ({ showIcon, triggerMenu, setShowImg, setImgPs }) => {
 
             <div>
               {hover6 && (
-                <div style={{ left: img1width / 1.96 + "px" }}>
+                <div style={{ left: imgWidthPosition / 1.96 + "px" }}>
                   <span>Моем фасады кухонных гарнитуров</span>
                 </div>
               )}
@@ -199,7 +188,7 @@ const Images = ({ showIcon, triggerMenu, setShowImg, setImgPs }) => {
                   onMouseLeave={() => setHover7(false)}
                 >
                   <div
-                    style={{ left: img1width / 1.3 + "px" }}
+                    style={{ left: imgWidthPosition / 1.3 + "px" }}
                     className="plus"
                   ></div>
                 </div>
@@ -208,7 +197,7 @@ const Images = ({ showIcon, triggerMenu, setShowImg, setImgPs }) => {
 
             <div>
               {hover7 && (
-                <div style={{ left: img1width / 1.38 + "px" }}>
+                <div style={{ left: imgWidthPosition / 1.38 + "px" }}>
                   <span>Моем посуду</span>
                 </div>
               )}
@@ -219,7 +208,9 @@ const Images = ({ showIcon, triggerMenu, setShowImg, setImgPs }) => {
 
       {showIcon == 2 && (
         <div
-          className={`image-container ${showIcon == 2 ? "active--img1" : ""}`}
+          className={`image-container ${showIcon == 2 ? "active--img1" : ""} ${
+            smallScreen ? "small" : ""
+          }`}
         >
           <img className="img2" src={img2} />
           {/* <span>Чистим фасад зеркала</span>
@@ -231,7 +222,9 @@ const Images = ({ showIcon, triggerMenu, setShowImg, setImgPs }) => {
 
       {showIcon == 3 && (
         <div
-          className={`image-container ${showIcon == 3 ? "active--img1" : ""}`}
+          className={`image-container ${showIcon == 3 ? "active--img1" : ""} ${
+            smallScreen ? "small" : ""
+          }`}
         >
           <img className="img3" src={img3} />
           {/* <span>Чистим стены</span>
@@ -242,7 +235,11 @@ const Images = ({ showIcon, triggerMenu, setShowImg, setImgPs }) => {
       )}
 
       {showIcon == 4 && (
-        <div className={`image-container ${showIcon == 4 ? "active--img1" : ""}`}>
+        <div
+          className={`image-container ${showIcon == 4 ? "active--img1" : ""} ${
+            smallScreen ? "small" : ""
+          }`}
+        >
           <img className="img4" src={img4} />
           {/* <span>Чистим фасад зеркала</span>
           <span>Чистим ракавены</span>
@@ -254,4 +251,4 @@ const Images = ({ showIcon, triggerMenu, setShowImg, setImgPs }) => {
   );
 };
 
-export default Images;
+export default React.forwardRef(Images);

@@ -7,6 +7,7 @@ import Text from "./components/Text/Text";
 import Menu from "./components/Menu/Menu";
 import "./App.scss";
 function App() {
+  
 
   return (
     <div className="App">
@@ -14,7 +15,7 @@ function App() {
       <Home />
       <Button />
       <Cards />
-      <Text />
+      <Text/>
       <Menu />
     </div>
   );
