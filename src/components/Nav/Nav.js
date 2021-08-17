@@ -23,7 +23,7 @@ function Nav() {
           <div className="right-container__item">+380 67 401 69 77</div>
           <div className="right-container__item">|</div>
           <div className="right-container__item">24/7</div>
-          <div className="right-container__item">burger</div>
+          {/* <div className="right-container__item">burger</div> */}
         </div>
       </nav>
     </React.Fragment>

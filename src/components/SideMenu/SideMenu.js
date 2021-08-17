@@ -32,10 +32,12 @@ const SideMenu = ({
             className={!smallScreen ? "sidemenu-container" : "small-sidemenu"}
           >
             {smallScreen && (
-              <GiHamburgerMenu
-                className="hamburger-menu"
+              <div
+                className={`menu-btn ${burgerShow ? "open" : ""}`}
                 onClick={() => setBurgerShow(!burgerShow)}
-              />
+              >
+                <div className="menu-btn__burger"></div>
+              </div>
             )}
 
             {!smallScreen && (
@@ -65,29 +67,37 @@ const SideMenu = ({
             )}
 
             {smallScreen && burgerShow && (
-              <>
-                <div onClick={() => buttonClickHandler(1)}>
-                  {showIcon == 1 && (
-                    <BsArrowRight
-                      className={`icon ${showIcon == 1 ? "icon" : ""}`}
-                    />
-                  )}
+              <div className="side-container">
+                <div
+                  onClick={() => buttonClickHandler(1)}
+                  className="side-btns btn1"
+                >
+                  <span></span>
                   Кухня
                 </div>
 
-                <div onClick={() => buttonClickHandler(2)}>
-                  {showIcon == 2 && <BsArrowRight className="icon" />}
+                <div
+                  onClick={() => buttonClickHandler(2)}
+                  className="side-btns btn2"
+                >
+                  <span></span>
+                  {/* {showIcon == 2 && <BsArrowRight className="icon" />} */}
                   Комнаты
                 </div>
-                <div onClick={() => buttonClickHandler(3)}>
-                  {showIcon == 3 && <BsArrowRight className="icon" />}
+                <div
+                  onClick={() => buttonClickHandler(3)}
+                  className="side-btns btn3"
+                >
+                  <span></span>
+                  {/* {showIcon == 3 && <BsArrowRight className="icon" />} */}
                   Ванная
                 </div>
-                <div onClick={() => buttonClickHandler(4)}>
-                  {showIcon == 4 && <BsArrowRight className="icon" />}
+                <d onClick={() => buttonClickHandler(4)} className="side-btns btn4">
+                  <span></span>
+                  {/* {showIcon == 4 && <BsArrowRight className="icon" />} */}
                   Прихожая
-                </div>
-              </>
+                </d>
+              </div>
             )}
           </div>
         </div>

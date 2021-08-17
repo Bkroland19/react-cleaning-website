@@ -1,9 +1,7 @@
 .side--active {
-  // display: block;
   display: flex;
   flex: 25%;
   height: 100vh;
-  // position: absolute;
 }
 .sidemenu-container {
   display: flex;
@@ -49,22 +47,6 @@
   }
 }
 
-// @keyframes btn {
-//   from {
-//     transform: translateX(-25%, 10%);
-//   }
-// }
-
-//Media Screens
-@media screen and(max-width: 1200px) {
-  // .sidemenu-container {
-  //   width: 275px;
-  // }
-  .side--active {
-    // position: absolute;
-  }
-}
-// 900 den asagi burger menu gelecek
 @media screen and(max-width: 900px) {
   .side--active {
     display: block;
@@ -73,23 +55,182 @@
     height: auto;
   }
 }
-
 .container {
   position: absolute;
   top: 5em;
   left: 2.5em;
 }
-// .small-sidemenu {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// }
 
-.hamburger-menu {
-  cursor: pointer;
-  font-size: 5em;
+.side-container {
+  width: 160px;
+  height: 100vh;
+  background-color: #262626;
+  top: 0;
+  left: 0;
+  border-radius: 0 70% 70% 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: -10;
+  animation: 0.6s side ease;
 }
 
+@keyframes side {
+  from {
+    transform: translateX(-350px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
 
-////////////////////////
+.menu-btn {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 56px;
+  height: 56px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  background-color: #5a2ff0;
+  border-radius: 50%;
+  left: 30px;
+  // border: 3px solid black;
+}
 
+.menu-btn__burger {
+  width: 26px;
+  height: 4px;
+  background: black;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+  transition: all 0.5s ease-in-out;
+}
+
+.menu-btn__burger::before,
+.menu-btn__burger::after {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 4px;
+  background: black;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+  transition: all 0.5s ease-in-out;
+}
+
+.menu-btn__burger::before {
+  transform: translateY(-10px);
+}
+
+.menu-btn__burger::after {
+  transform: translateY(10px);
+}
+
+.menu-btn.open .menu-btn__burger {
+  transform: translateX(-50px);
+  background: transparent;
+  box-shadow: none;
+}
+
+.menu-btn.open .menu-btn__burger::before {
+  transform: rotate(45deg) translate(35px, -35px);
+}
+
+.menu-btn.open .menu-btn__burger::after {
+  transform: rotate(-45deg) translate(35px, 35px);
+}
+
+.side-btns {
+  width: 170px;
+  height: 40px;
+  color: #5a2ff0;
+  background-color: transparent;
+  font-size: 24px;
+  text-transform: uppercase;
+  text-align: left;
+  line-height: 30px;
+  transition: all 0.5s;
+  position: relative;
+  left: 10px;
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    background-color: #5a2ff0;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s;
+    z-index: -33;
+    opacity: 0;
+  }
+  &::before {
+    left: 0;
+    box-shadow: -100px 0 0 #5a2ff0;
+  }
+  &::after {
+    right: 0;
+    box-shadow: 100px 0 0 #5a2ff0;
+  }
+  &:hover::before {
+    left: 50%;
+    box-shadow: 30px 0 0 #5a2ff0;
+    transform: translateX(-50%) translateY(-50%);
+    // opacity: 1;
+  }
+  &:hover::after {
+    right: 50%;
+    box-shadow: -30px 0 0 #5a2ff0;
+    transform: translateX(50%) translateY(-50%);
+    // opacity: 1;
+  }
+  span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #5a2ff0;
+    border-radius: 8px;
+    transform: scale(0);
+    transition: all 0.3s;
+    z-index: -33;
+  }
+  &:hover span {
+    transform: scale(1);
+    transition-delay: 0.4s;
+  }
+  &:hover {
+    color: white;
+    transition-delay: 0.4s;
+  }
+}
+
+.btn1 {
+  animation: 0.9s btn1 ease-out;
+}
+.btn2 {
+  animation: 1s btn1 ease-out;
+}
+.btn3 {
+  animation: 1.2s btn1 ease-out;
+}
+.btn4 {
+  animation: 1.4s btn1 ease-out;
+}
+
+@keyframes btn1 {
+  from {
+    transform: translatex(-150px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}

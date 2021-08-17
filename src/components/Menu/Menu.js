@@ -10,20 +10,12 @@ const Menu = () => {
   const [smallScreen, setSmallScreen] = useState(false);
   const ref = useRef();
 
-  // userLayoutEffect(() => {
-  //   let imgPosition = meme.current.getBoundingClientRect().top;
-  //   setElPosition(imgPosition);
-  //   console.log(elPosition);
-  // }, []);
-
   useLayoutEffect(() => {
     const imgPosition = ref.current.getBoundingClientRect().bottom;
     console.log(imgPosition);
 
     const scrollHandler = () => {
-      // console.log(imgPs);
       const pageScroll = window.scrollY + window.innerHeight;
-      // setScPosition(pageScroll);
       pageScroll > imgPosition ? setTriggerMenu(true) : setTriggerMenu(false);
       console.log(pageScroll, imgPosition);
     };
@@ -32,29 +24,14 @@ const Menu = () => {
     return () => window.removeEventListener("scroll", scrollHandler);
   }, [triggerMenu, scPosition]);
 
-  const emeruk = () => {
+  const calcWidth = () => {
     window.innerWidth <= 900 ? setSmallScreen(true) : setSmallScreen(false);
   };
 
   useEffect(() => {
-    window.addEventListener("resize", emeruk);
-    return () => window.removeEventListener("resize", emeruk);
+    window.addEventListener("resize", calcWidth);
+    return () => window.removeEventListener("resize", calcWidth);
   }, []);
-
-  // useLayoutEffect(() => {
-  //   const imgPosition = document
-  //     .querySelector(".menu-container")
-  //     .getBoundingClientRect().top;
-  //   console.log(imgPosition);
-  //   const sd = () => {
-  //     const scrollPosition = window.scrollY + window.offSetHeight;
-  //     if (imgPosition < scrollPosition) {
-  //       setImgPs(imgPosition);
-  //     }
-  //   };
-  //   window.addEventListener("scroll", sd);
-  //   return () => window.removeEventListener("scroll", sd);
-  // }, []);
 
   return (
     <React.Fragment>
