@@ -41,7 +41,7 @@
     font-family: "TTT-Bold";
     font-weight: bold;
     box-shadow: 1px 2px 3px #000000;
-    border-top: 2px solid #ff7675;
+    border-top: 3px double #9c8aa5;
   }
 }
 
@@ -136,11 +136,12 @@
     left: -3px;
     width: 100%;
     height: 100%;
-    background-color: #20caff;
+    background-color: #6d4edf;
     z-index: -1;
     mix-blend-mode: multiply;
     transition: all 0.2s;
     transform-origin: top;
+    border-radius: 11px;
   }
   &__item:hover::before {
     top: -6px;
@@ -154,11 +155,15 @@
     left: 3px;
     width: 100%;
     height: 100%;
-    background-color: #ff7675;
+    background-color: #9c8aa5;
     z-index: -1;
     mix-blend-mode: multiply;
     transition: all 0.2s;
     transform-origin: bottom;
+    border-top-right-radius: 32%;
+    border-top-left-radius: 10%;
+    border-bottom-left-radius: 12%;
+    border-bottom-right-radius: 22%;
   }
   &__item:hover::after {
     top: 6px;
@@ -175,110 +180,12 @@
     margin: 0 0.5em 0 1em;
   }
 }
-// @media screen and(max-width: 1440px) {
-//   .nav {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     // position: relative;
-//     z-index: 100;
-//     padding: 0.5em 0.5em;
-//     margin: 1em 1em 1em 3em;
-//     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
-//       rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-//   }
-// }
-// @media screen and(max-width: 900px) {
-//   .switch-1 {
-//     position: relative;
-//     height: 50px;
-//   }
 
-//   .switch-1 {
-//     input {
-//       position: relative;
-//       width: 140px;
-//       height: 45px;
-//       border-radius: 25px;
-//       outline: none;
-//       cursor: pointer;
-//       appearance: none;
-//       font-family: "TTT-Regular";
-//       font-weight: bold;
-//       box-shadow: 1px 2px 3px #000000;
-//     }
-//   }
-
-//   .switch-1 {
-//     input:before,
-//     input:after {
-//       z-index: 2;
-//       position: absolute;
-//       top: 50%;
-//       transform: translateY(-50%);
-//       color: #111;
-//     }
-//   }
-
-//   .switch-1 {
-//     input:before {
-//       content: "Дом";
-//       left: 25px;
-//     }
-//     input:after {
-//       content: "Офис";
-//       right: 25px;
-//     }
-//     label {
-//       z-index: 1;
-//       position: absolute;
-//       top: 8px;
-//       bottom: 12px;
-//       border-radius: 20px;
-//     }
-//   }
-
-//   .switch-1.switch-2 {
-//     input {
-//       transition: 0.2s -0.1s;
-//     }
-//     input:checked {
-//       background: #fff;
-//     }
-//     input:checked:before {
-//       color: #111;
-//       transition: color 0.5s 0.2s;
-//     }
-//     input:checked:after {
-//       color: #111;
-//       transition: color 0.5s;
-//     }
-//     input:checked + label {
-//       left: 10px;
-//       right: 100px;
-//       background: #5a2ff0;
-//       transition: left 0.5s, right 0.4s 0.2s;
-//     }
-//     input:not(:checked) {
-//       background: #5a2ff0;
-//       transition: background 0.5s -0.1s;
-//     }
-//     input:not(:checked):before {
-//       color: #111;
-//       transition: color 0.5s;
-//     }
-//     input:not(:checked):after {
-//       color: #1e1e1e;
-//       transition: color 0.5s 0.2s;
-//     }
-//     input:not(:checked) + label {
-//       left: 100px;
-//       right: 10px;
-//       background: #fff;
-//       transition: left 0.4s 0.2s, right 0.5s, background 0.35s -0.2s;
-//     }
-//   }
-// }
+@media screen and(max-width: 1024px) {
+  .nav {
+    height: 4.5em;
+  }
+}
 
 /*
 $breakpoint arguement choices:
@@ -317,3 +224,129 @@ $breakpoint arguement choices:
 //     }
 //   }
 // }
+
+.nav-btn {
+  position: relative;
+  right: 2em;
+  bottom: 0.7em;
+  cursor: pointer;
+  height: 100%;
+}
+
+.nav-btn__burger {
+  position: absolute;
+  right: 10px;
+  width: 18px;
+  height: 3px;
+  background: black;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+  transition: all 0.5s ease-in-out;
+}
+
+.nav-btn__burger:hover {
+  width: 28px;
+}
+
+.nav-btn__burger::before,
+.nav-btn__burger::after {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 3px;
+  background: black;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.nav-btn__burger::before {
+  transform: translateY(-10px);
+}
+
+.nav-btn__burger::after {
+  transform: translateY(10px);
+}
+
+.nav--button--opened .nav-btn__burger {
+  transform: translateX(-50px);
+  background: transparent;
+  box-shadow: none;
+}
+
+.nav--button--opened .nav-btn__burger::before {
+  transform: rotate(45deg) translate(35px, -35px);
+}
+
+.nav--button--opened .nav-btn__burger::after {
+  transform: rotate(-45deg) translate(35px, 35px);
+}
+
+// Burger Container
+
+// .burger-nav {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+// }
+
+// body {
+//   overflow: hidden;
+// }
+.burger-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1500;
+  height: 100vh;
+  width: 100%;
+  background-color: #111;
+  &__item {
+    position: relative;
+    letter-spacing: 7px;
+    padding: 18px 30px;
+    font-size: 28px;
+    font-size: 3em;
+    color: white;
+    &::before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 50%;
+      left: -1%;
+      top: -5px;
+      background-color: #9c8aa5;
+      transform: skewX(30deg);
+      z-index: -1;
+      transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    &:hover::before {
+      transform: skewX(0deg);
+      left: 50%;
+      top: 0;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 50%;
+      left: 51%;
+      top: 5px;
+      background-color: #6d4edf;
+      transform: skewX(30deg);
+      z-index: -1;
+      transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    &:hover::after {
+      transform: skewX(0deg);
+      left: 0%;
+      top: 0;
+    }
+  }
+  &__item:not(:last-child) {
+    margin-bottom: 2em;
+  }
+}

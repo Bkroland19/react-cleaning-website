@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./SideMenu.scss";
 import { BsArrowRight } from "react-icons/bs";
-import { GiHamburgerMenu } from "react-icons/gi";
+
 const SideMenu = ({
   triggerMenu,
   showIcon,

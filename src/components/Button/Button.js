@@ -11,10 +11,10 @@ function Button() {
     const x = e.pageX - position.left - position.width / 2;
     const y = e.pageY - position.top - position.height / 2;
     btn.style.transform =
-      "translate3d(" + x * 0.3 + "px, " + y * 0.6 + "px, " + 0 + "px) scale(1)";
+      "translate3d(" + x * 0.4 + "px, " + y * 0.6 + "px, " + 0 + "px) scale(1)";
     btn.children[1].style.transform =
       "translate3d(" +
-      x * 0.2 +
+      x * 0.3 +
       "px, " +
       y * 0.4 +
       "px, " +
