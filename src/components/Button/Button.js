@@ -27,7 +27,7 @@ function Button() {
     const btn = document.querySelector(".button-container");
 
     btn.style.transform = "translate3d(0px, 0px, 0px) scale(1)";
-    btn.children[1].style.transform = "translate(0,0)"; // 1
+    btn.children[1].style.transform = "translate(0,0)";
     btn.children[0].style.transform = "scale(1)";
   }, []);
 

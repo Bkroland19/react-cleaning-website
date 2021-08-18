@@ -1,8 +1,9 @@
 .side--active {
   display: flex;
-  flex: 25%;
+  flex: 30%;
   height: 100vh;
 }
+
 .sidemenu-container {
   display: flex;
   flex-direction: column;
@@ -21,6 +22,7 @@
     text-align: left;
     left: 1.5em;
     opacity: 0.8;
+    cursor: pointer;
   }
   & > div:not(:nth-last-child(1)) {
     margin-bottom: 1em;
@@ -47,14 +49,6 @@
   }
 }
 
-@media screen and(max-width: 900px) {
-  .side--active {
-    display: block;
-    position: absolute;
-    z-index: 200;
-    height: auto;
-  }
-}
 .container {
   position: absolute;
   top: 5em;
@@ -64,7 +58,7 @@
 .side-container {
   width: 160px;
   height: 100vh;
-  background-color: #262626;
+  background-color: #5a2ff0;
   top: 0;
   left: 0;
   border-radius: 0 70% 70% 0;
@@ -94,10 +88,13 @@
   height: 56px;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
-  background-color: #5a2ff0;
+  background-color: #fff;
   border-radius: 50%;
   left: 30px;
-  // border: 3px solid black;
+  z-index: 1;
+  &--color {
+    background-color: rgb(34, 32, 32);
+  }
 }
 
 .menu-btn__burger {
@@ -137,16 +134,18 @@
 
 .menu-btn.open .menu-btn__burger::before {
   transform: rotate(45deg) translate(35px, -35px);
+  background-color: #fff;
 }
 
 .menu-btn.open .menu-btn__burger::after {
   transform: rotate(-45deg) translate(35px, 35px);
+  background-color: #fff;
 }
 
 .side-btns {
   width: 170px;
   height: 40px;
-  color: #5a2ff0;
+  color: #fff;
   background-color: transparent;
   font-size: 24px;
   text-transform: uppercase;
@@ -181,13 +180,11 @@
     left: 50%;
     box-shadow: 30px 0 0 #5a2ff0;
     transform: translateX(-50%) translateY(-50%);
-    // opacity: 1;
   }
   &:hover::after {
     right: 50%;
     box-shadow: -30px 0 0 #5a2ff0;
     transform: translateX(50%) translateY(-50%);
-    // opacity: 1;
   }
   span {
     position: absolute;
@@ -195,7 +192,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #5a2ff0;
+    background-color: #fff;
     border-radius: 8px;
     transform: scale(0);
     transition: all 0.3s;
@@ -206,7 +203,7 @@
     transition-delay: 0.4s;
   }
   &:hover {
-    color: white;
+    color: black;
     transition-delay: 0.4s;
   }
 }
@@ -232,5 +229,44 @@
   to {
     transform: translateY(0px);
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .side--active {
+    display: block;
+    position: absolute;
+    z-index: 200;
+    height: auto;
+  }
+  .menu-btn {
+    top: 30px;
+  }
+  .side-container {
+    width: 98vw;
+    height: 100vh;
+    animation: 0.6s side ease;
+    border-radius: 0% 0% 0% 0%;
+    opacity: 0.3;
+  }
+  .side-btns {
+    left: 0px;
+    height: 100px;
+    font-size: 44px;
+    cursor: pointer;
+    span {
+      position: absolute;
+      top: -15px;
+    }
+    &:hover span {
+      width: 30px;
+      height: 60px;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .side-btns {
+    left: -100px;
   }
 }

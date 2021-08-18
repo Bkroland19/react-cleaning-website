@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // position: relative;
   z-index: 100;
   padding: 1em 0.5em;
   margin: 1em 0 1em 0;
@@ -237,7 +236,7 @@ $breakpoint arguement choices:
   position: absolute;
   right: 10px;
   width: 18px;
-  height: 3px;
+  height: 2px;
   background: black;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
@@ -253,7 +252,7 @@ $breakpoint arguement choices:
   content: "";
   position: absolute;
   width: 26px;
-  height: 3px;
+  height: 2px;
   background: black;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
@@ -283,17 +282,6 @@ $breakpoint arguement choices:
   transform: rotate(-45deg) translate(35px, 35px);
 }
 
-// Burger Container
-
-// .burger-nav {
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-// }
-
-// body {
-//   overflow: hidden;
-// }
 .burger-container {
   display: flex;
   flex-direction: column;

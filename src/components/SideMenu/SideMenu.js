@@ -33,10 +33,10 @@ const SideMenu = ({
           >
             {smallScreen && (
               <div
-                className={`menu-btn ${burgerShow ? "open" : ""}`}
+                className={`menu-btn ${burgerShow ? "open menu-btn--color" : ""}`}
                 onClick={() => setBurgerShow(!burgerShow)}
               >
-                <div className="menu-btn__burger"></div>
+                <a className={`menu-btn__burger ${burgerShow ? "menu-btn__burger--color" : ""}`}></a>
               </div>
             )}
 

@@ -70,6 +70,7 @@
   .wrapper {
     width: 130px;
     height: 130px;
+    left: calc(50% - 50px);
   }
   .button-container{
     &__text {
@@ -78,6 +79,6 @@
   }
 }
 
-
-// tinder
-// airbnb
+@media screen and(max-width: 1200px) {
+  
+}

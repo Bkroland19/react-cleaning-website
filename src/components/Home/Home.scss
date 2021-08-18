@@ -70,3 +70,35 @@
     }
   }
 }
+
+@media screen and(max-width: 600px) {
+  .home-wrapper {
+    display: block;
+  }
+  .home-img-container {
+    // display: flex;
+    // align-items: center;
+    height: 100%;
+    top: 0;
+    z-index: 1;
+    flex: 1;
+    &__img {
+      background-position: 70%;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+  .home-text-wrapper {
+    display: block;
+    position: absolute;
+    top: 565px;
+    left: 270px;
+    height: 100%;
+  }
+  .home-text-container {
+    &__inner-text {
+      font-size: 1.5em;
+      font-family: "TTT-Light";
+    }
+  }
+}
