@@ -41,7 +41,7 @@ const SideMenu = ({
             )}
 
             {!smallScreen && (
-              <>
+              <React.Fragment>
                 <div onClick={() => buttonClickHandler(1)}>
                   {showIcon == 1 && (
                     <BsArrowRight
@@ -63,7 +63,7 @@ const SideMenu = ({
                   {showIcon == 4 && <BsArrowRight className="icon" />}
                   Прихожая
                 </div>
-              </>
+              </React.Fragment>
             )}
 
             {smallScreen && burgerShow && (
@@ -81,7 +81,6 @@ const SideMenu = ({
                   className="side-btns btn2"
                 >
                   <span></span>
-                  {/* {showIcon == 2 && <BsArrowRight className="icon" />} */}
                   Комнаты
                 </div>
                 <div
@@ -89,12 +88,10 @@ const SideMenu = ({
                   className="side-btns btn3"
                 >
                   <span></span>
-                  {/* {showIcon == 3 && <BsArrowRight className="icon" />} */}
                   Ванная
                 </div>
                 <d onClick={() => buttonClickHandler(4)} className="side-btns btn4">
                   <span></span>
-                  {/* {showIcon == 4 && <BsArrowRight className="icon" />} */}
                   Прихожая
                 </d>
               </div>

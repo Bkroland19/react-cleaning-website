@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useLayoutEffect, useRef } from "react";
 import "./Images.scss";
 import img from "../../assets/7.png";
 import img2 from "../../assets/8.png";
@@ -15,23 +15,28 @@ const Images = ({ showIcon, triggerMenu, smallScreen }, ref) => {
   const [hover5, setHover5] = useState(false);
   const [hover6, setHover6] = useState(false);
   const [hover7, setHover7] = useState(false);
-  useEffect(() => {
-    const imgEl = document.querySelector(".refref");
-    setImgWidthPosition(imgEl.clientWidth);
-  }, []);
+  const windowWidth = window.innerWidth;
+  console.log(windowWidth);
 
-  const calcwidth = () => {
-    const imgEl = document.querySelector(".refref");
+  useLayoutEffect(() => {
+    const imgEl = document.querySelector(".image-container--position");
+    setImgWidthPosition(imgEl.clientWidth);
+  }, [imgWidthPosition, windowWidth]);
+
+  const calcWidth = () => {
+    const imgEl = document.querySelector(".image-container--position");
     const imgWidth = imgEl.clientWidth;
     setImgWidthPosition(imgWidth);
   };
-  window.addEventListener("resize", calcwidth);
+  window.addEventListener("resize", calcWidth);
+
+  // showIcon;
 
   return (
     <React.Fragment>
       <div
         ref={ref}
-        className={`image-container refref ${
+        className={`image-container image-container--position ${
           triggerMenu ? "active--img1" : ""
         } ${showIcon !== 1 && showIcon !== 0 ? "deactive" : ""} ${
           smallScreen ? "small" : ""
@@ -39,9 +44,7 @@ const Images = ({ showIcon, triggerMenu, smallScreen }, ref) => {
       >
         <div>
           <img
-            className={`img--1 ${
-              showIcon !== 1 && showIcon !== 0 ? "deactive" : ""
-            }`}
+            className={showIcon !== 1 && showIcon !== 0 ? "deactive" : ""}
             src={img}
           />
         </div>
@@ -56,7 +59,9 @@ const Images = ({ showIcon, triggerMenu, smallScreen }, ref) => {
                 >
                   <div
                     style={{ left: imgWidthPosition / 3 + "px" }}
-                    className="plus"
+                    className={`plus ${
+                      showIcon !== 1 && showIcon !== 0 ? "deactive" : ""
+                    }`}
                   ></div>
                 </div>
               )}
@@ -212,10 +217,6 @@ const Images = ({ showIcon, triggerMenu, smallScreen }, ref) => {
           }`}
         >
           <img className="img2" src={img2} />
-          {/* <span>Чистим фасад зеркала</span>
-          <span>Чистим ракавены</span>
-          <span>Чистим туалет</span>
-          <span>Чистим ванное</span> */}
         </div>
       )}
 
@@ -226,10 +227,6 @@ const Images = ({ showIcon, triggerMenu, smallScreen }, ref) => {
           }`}
         >
           <img className="img3" src={img3} />
-          {/* <span>Чистим стены</span>
-          <span>Моем диван</span>
-          <span>Протираем любое пространство</span>
-          <span>Моем ковёр</span> */}
         </div>
       )}
 
@@ -240,10 +237,6 @@ const Images = ({ showIcon, triggerMenu, smallScreen }, ref) => {
           }`}
         >
           <img className="img4" src={img4} />
-          {/* <span>Чистим фасад зеркала</span>
-          <span>Чистим ракавены</span>
-          <span>Чистим туалет</span>
-          <span>Чистим ванное</span> */}
         </div>
       )}
     </React.Fragment>

@@ -40,7 +40,6 @@ function Nav() {
             <div className="middle-container__item">Мойка окон</div>
           </div>
         )}
-
         <div className="right-container">
           {!screen1024 && (
             <>
@@ -49,7 +48,6 @@ function Nav() {
               <div className="right-container__item">24/7</div>
             </>
           )}
-
           {screen1024 && (
             <div
               className={`nav-btn ${

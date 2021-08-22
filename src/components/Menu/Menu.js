@@ -24,13 +24,13 @@ const Menu = () => {
     return () => window.removeEventListener("scroll", scrollHandler);
   }, [triggerMenu, scPosition]);
 
-  const calcWidth = () => {
+  const calcPageWidth = () => {
     window.innerWidth <= 900 ? setSmallScreen(true) : setSmallScreen(false);
   };
 
   useEffect(() => {
-    window.addEventListener("resize", calcWidth);
-    return () => window.removeEventListener("resize", calcWidth);
+    window.addEventListener("resize", calcPageWidth);
+    return () => window.removeEventListener("resize", calcPageWidth);
   }, []);
 
   return (
