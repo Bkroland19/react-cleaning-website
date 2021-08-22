@@ -15,22 +15,18 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Type on the input field to see different data by filtering method.
+Fully Responsive cleaning company website. Currenly is underway
 
-Limitted amount of data returned from a API call via axios.
-Filtered data with 3 character limit SCSS and BEM
-
-[Project-Demo](https://quizzical-gates-823182.netlify.app/)
+[Project-Demo]()
 
 ![Screenshot from 2021-08-22 11-29-58](https://user-images.githubusercontent.com/75113766/130347896-6344a375-1973-4378-9bfc-4ccc6e88a2a6.png)
 
 
 #### React Used
 
-* Hooks (useEffect, useState)
+* Hooks (useEffect, useState, useLayoutEffect, useRef)
 * SCSS
-* AXIOS
-* REDUX
+* ForwardRef
 * DOM Manupulations
 
 ### Built With
