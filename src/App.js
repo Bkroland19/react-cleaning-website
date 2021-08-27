@@ -10,7 +10,7 @@ import { UserContext } from "./contexts/UserContext";
 import "./App.scss";
 import React, { useState, useEffect } from "react";
 
-function App() {
+const App = () => {
   const [calc1060, setCalc1060] = useState(false);
   const { t, i18n } = useTranslation("translation");
 
@@ -26,14 +26,14 @@ function App() {
 
   return (
     <UserContext.Provider value={{ calc1060, calcSmallScreen }}>
-      <Nav t={t} />
+      <Nav t={t} i18n={i18n} />
       <Home t={t} />
       <Button t={t} />
       <Cards t={t} />
       <Text t={t} />
-      <Menu />
+      <Menu t={t} i18n={i18n} />
     </UserContext.Provider>
   );
-}
+};
 
 export default App;

@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Images from "../Images/Images";
 import SideMenu from "../SideMenu/SideMenu";
 import "./Menu.scss";
 
-const Menu = ({ t }) => {
+const Menu = ({t}) => {
   const [triggerMenu, setTriggerMenu] = useState(false);
   const [showIcon, setShowIcon] = useState(0);
   const [smallScreen, setSmallScreen] = useState(false);
@@ -11,12 +11,9 @@ const Menu = ({ t }) => {
 
   useEffect(() => {
     const imgPosition = ref.current.getBoundingClientRect().top;
-    console.log(imgPosition);
-
     const scrollHandler = () => {
       const pageScroll = window.scrollY + window.innerHeight;
       pageScroll > imgPosition ? setTriggerMenu(true) : setTriggerMenu(false);
-      console.log(pageScroll, imgPosition);
     };
 
     window.addEventListener("scroll", scrollHandler);
@@ -43,6 +40,7 @@ const Menu = ({ t }) => {
           setShowIcon={setShowIcon}
           smallScreen={smallScreen}
           setSmallScreen={setSmallScreen}
+          t={t}
         />
         <Images
           ref={ref}

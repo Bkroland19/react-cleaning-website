@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useLayoutEffect, useState } from "react";
+import React, { useRef, useLayoutEffect, useState } from "react";
 import img1 from "../../assets/1.png";
 import img2 from "../../assets/2.png";
 import img3 from "../../assets/3.png";
@@ -42,7 +42,7 @@ function Cards({ t }) {
         </div>
         <div className={`card-container__item y ${show ? "animated2" : ""}`}>
           <p className="card-container__item__hover--text">
-          {t("cards.hover")}
+            {t("cards.hover")}
           </p>
           <div className="card-container__item__text">
             <p>{t("cards.2")}</p>
@@ -55,7 +55,7 @@ function Cards({ t }) {
         </div>
         <div className={`card-container__item z ${show ? "animated3" : ""}`}>
           <p className="card-container__item__hover--text">
-          {t("cards.hover")}
+            {t("cards.hover")}
           </p>
           <div className="card-container__item__text">
             <p>{t("cards.3")}</p>
@@ -66,7 +66,7 @@ function Cards({ t }) {
         </div>
         <div className={`card-container__item e ${show ? "animated4" : ""}`}>
           <p className="card-container__item__hover--text">
-          {t("cards.hover")}
+            {t("cards.hover")}
           </p>
           <div>
             <p className="card-container__item__text">{t("cards.4")}</p>

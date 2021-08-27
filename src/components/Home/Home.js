@@ -1,8 +1,7 @@
 import React from "react";
 import "./Home.scss";
-// import img from "../../assets/Rectangle 47.jpg";
 
-function Home({ t }) {
+const Home = ({ t }) => {
   return (
     <div className="home-wrapper">
       <div className="home-img-container">
@@ -16,6 +15,6 @@ function Home({ t }) {
       </div>
     </div>
   );
-}
+};
 
 export default Home;

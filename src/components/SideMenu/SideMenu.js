@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useTranslation } from "react-i18next";
 import { BsArrowRight } from "react-icons/bs";
 import "./SideMenu.scss";
 
@@ -9,6 +8,7 @@ const SideMenu = ({
   setShowIcon,
   smallScreen,
   setSmallScreen,
+  t,
 }) => {
   const buttonClickHandler = (num) => {
     setShowIcon(num);
@@ -22,11 +22,9 @@ const SideMenu = ({
     window.addEventListener("resize", calc);
     calc();
     return () => window.removeEventListener("resize", calc);
-  }, []);
+  }, [calc]); //
 
   const [burgerShow, setBurgerShow] = useState(false);
-  const { t, i18n } = useTranslation("translation");
-
   return (
     <React.Fragment>
       {triggerMenu && (

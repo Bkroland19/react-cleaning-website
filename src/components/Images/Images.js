@@ -1,10 +1,9 @@
-import React, { useEffect, useState, useLayoutEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import "./Images.scss";
 import img from "../../assets/7.png";
 import img2 from "../../assets/8.png";
 import img3 from "../../assets/9.jpg";
 import img4 from "../../assets/10.jpg";
-// import { className } from "postcss-selector-parser";
 
 const Images = ({ showIcon, triggerMenu, smallScreen }, ref) => {
   const [imgWidthPosition, setImgWidthPosition] = useState(0);
@@ -43,6 +42,7 @@ const Images = ({ showIcon, triggerMenu, smallScreen }, ref) => {
       >
         <div>
           <img
+            alt="no img founded"
             className={showIcon !== 1 && showIcon !== 0 ? "deactive" : ""}
             src={img}
           />
@@ -57,7 +57,7 @@ const Images = ({ showIcon, triggerMenu, smallScreen }, ref) => {
                   onMouseLeave={() => setHover1(false)}
                 >
                   <div
-                    style={{ left: imgWidthPosition / 3 + "px" }}
+                    style={{ left: imgWidthPosition / 3.2 + "px" }}
                     className={`plus ${
                       showIcon !== 1 && showIcon !== 0 ? "deactive" : ""
                     }`}
@@ -68,7 +68,7 @@ const Images = ({ showIcon, triggerMenu, smallScreen }, ref) => {
 
             <div>
               {hover1 && (
-                <div style={{ left: imgWidthPosition / 4.6 + "px" }}>
+                <div style={{ left: imgWidthPosition / 4.25 + "px" }}>
                   <span>Чистим фасад вытяжки</span>
                 </div>
               )}
@@ -81,7 +81,7 @@ const Images = ({ showIcon, triggerMenu, smallScreen }, ref) => {
                   onMouseLeave={() => setHover2(false)}
                 >
                   <div
-                    style={{ left: imgWidthPosition / 2.8 + "px" }}
+                    style={{ left: imgWidthPosition / 3 + "px" }}
                     className="plus"
                   ></div>
                 </div>
@@ -90,7 +90,7 @@ const Images = ({ showIcon, triggerMenu, smallScreen }, ref) => {
 
             <div>
               {hover2 && (
-                <div style={{ left: imgWidthPosition / 3.5 + "px" }}>
+                <div style={{ left: imgWidthPosition / 3.55 + "px" }}>
                   <span>Чистим плитку</span>
                 </div>
               )}
@@ -112,7 +112,7 @@ const Images = ({ showIcon, triggerMenu, smallScreen }, ref) => {
 
             <div>
               {hover3 && (
-                <div style={{ left: imgWidthPosition / 3.4 + "px" }}>
+                <div style={{ left: imgWidthPosition / 3.25 + "px" }}>
                   <span>Моем пол</span>
                 </div>
               )}
@@ -134,7 +134,7 @@ const Images = ({ showIcon, triggerMenu, smallScreen }, ref) => {
 
             <div>
               {hover4 && (
-                <div style={{ left: imgWidthPosition / 2.3 + "px" }}>
+                <div style={{ left: imgWidthPosition / 2.13 + "px" }}>
                   <span>Выносим мусор</span>
                 </div>
               )}
@@ -156,7 +156,7 @@ const Images = ({ showIcon, triggerMenu, smallScreen }, ref) => {
 
             <div>
               {hover5 && (
-                <div style={{ left: imgWidthPosition / 2.3 + "px" }}>
+                <div style={{ left: imgWidthPosition / 2.1 + "px" }}>
                   <span>Протираем столешницу</span>
                 </div>
               )}
@@ -178,7 +178,7 @@ const Images = ({ showIcon, triggerMenu, smallScreen }, ref) => {
 
             <div>
               {hover6 && (
-                <div style={{ left: imgWidthPosition / 2.2 + "px" }}>
+                <div style={{ left: imgWidthPosition / 1.97 + "px" }}>
                   <span>Моем фасады кухонных гарнитуров</span>
                 </div>
               )}
@@ -200,7 +200,7 @@ const Images = ({ showIcon, triggerMenu, smallScreen }, ref) => {
 
             <div>
               {hover7 && (
-                <div style={{ left: imgWidthPosition / 1.4 + "px" }}>
+                <div style={{ left: imgWidthPosition / 1.38 + "px" }}>
                   <span>Моем посуду</span>
                 </div>
               )}
@@ -209,33 +209,33 @@ const Images = ({ showIcon, triggerMenu, smallScreen }, ref) => {
         )}
       </div>
 
-      {showIcon == 2 && (
+      {showIcon === 2 && (
         <div
-          className={`image-container ${showIcon == 2 ? "active--img1" : ""} ${
+          className={`image-container ${showIcon === 2 ? "active--img1" : ""} ${
             smallScreen ? "small" : ""
           }`}
         >
-          <img className="img2" src={img2} />
+          <img alt="no img founded" className="img2" src={img2} />
         </div>
       )}
 
-      {showIcon == 3 && (
+      {showIcon === 3 && (
         <div
-          className={`image-container ${showIcon == 3 ? "active--img1" : ""} ${
+          className={`image-container ${showIcon === 3 ? "active--img1" : ""} ${
             smallScreen ? "small" : ""
           }`}
         >
-          <img className="img3" src={img3} />
+          <img alt="no img founded" className="img3" src={img3} />
         </div>
       )}
 
-      {showIcon == 4 && (
+      {showIcon === 4 && (
         <div
-          className={`image-container ${showIcon == 4 ? "active--img1" : ""} ${
+          className={`image-container ${showIcon === 4 ? "active--img1" : ""} ${
             smallScreen ? "small" : ""
           }`}
         >
-          <img className="img4" src={img4} />
+          <img alt="no img founded" className="img4" src={img4} />
         </div>
       )}
     </React.Fragment>

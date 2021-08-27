@@ -1,7 +1,9 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback, useContext } from "react";
+import { UserContext } from "../../contexts/UserContext";
 import "./Button.scss";
 
-function Button() {
+function Button({ t }) {
+  const context = useContext(UserContext);
   const [showBtn, setShowBtn] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -33,45 +35,49 @@ function Button() {
 
   useEffect(() => {
     const btn = document.querySelector(".button-container");
-    const wrapper = document.querySelector(".wrapper");
+    if (!context.calc1060) {
+      if (scrollPosition > window.innerHeight + 250) {
+        setShowBtn(true);
+        btn.removeEventListener("mousemove", mouseMove, false);
+        btn.removeEventListener("mouseout", mouseOut, false);
+      } else {
+        setShowBtn(false);
+        btn.addEventListener("mousemove", mouseMove, false);
+        btn.addEventListener("mouseout", mouseOut, false);
+      }
 
-    if (scrollPosition > window.innerHeight + 250) {
-      setShowBtn(true);
-      btn.removeEventListener("mousemove", mouseMove, false);
-      btn.removeEventListener("mouseout", mouseOut, false);
+      scrollPosition > window.innerHeight + 1100
+        ? (btn.style.display = "none")
+        : (btn.style.display = "block");
+
+      const scroolCatch = () => {
+        let pos = window.innerHeight + window.scrollY;
+        setScrollPosition(pos);
+      };
+
+      window.addEventListener("scroll", scroolCatch);
+      return () => window.removeEventListener("scroll", scroolCatch);
     } else {
-      setShowBtn(false);
-      btn.addEventListener("mousemove", mouseMove, false);
-      btn.addEventListener("mouseout", mouseOut, false);
+      return;
     }
-
-    scrollPosition > window.innerHeight + 1100
-      ? (btn.style.display = "none")
-      : (btn.style.display = "block");
-
-    const scroolCatch = () => {
-      let pos = window.innerHeight + window.scrollY;
-      setScrollPosition(pos);
-    };
-
-    window.addEventListener("scroll", scroolCatch);
-    return () => window.removeEventListener("scroll", scroolCatch);
   }, [scrollPosition, showBtn]);
 
   return (
     <React.Fragment>
-      <div className={`wrapper ${showBtn ? "active--wrapper" : "bounce"}`}>
-        <div
-          className={`button-container ${
-            showBtn
-              ? "deactive--button--container"
-              : "active--button--container "
-          }`}
-        >
-          <div className="button-container__outline"></div>
-          <div className="button-container__text">Заказать уборку</div>
+      {!context.calc1060 && (
+        <div className={`wrapper ${showBtn ? "active--wrapper" : "bounce"}`}>
+          <div
+            className={`button-container ${
+              showBtn
+                ? "deactive--button--container"
+                : "active--button--container "
+            }`}
+          >
+            <div className="button-container__outline"></div>
+            <div className="button-container__text">{t("button.1")}</div>
+          </div>
         </div>
-      </div>
+      )}
     </React.Fragment>
   );
 }

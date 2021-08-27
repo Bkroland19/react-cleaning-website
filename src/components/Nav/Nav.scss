@@ -188,44 +188,6 @@
   }
 }
 
-/*
-$breakpoint arguement choices:
-- phone
-- tab-port
-- tab-land
-- big-desktop
-*/
-
-// @mixin respond($breakpoin.left-container {
-//   display: flex;
-//   align-items: center;
-//   &__text {
-//     margin: 0 1em 0 1em;
-//     text-align: center;
-//   }
-// }) {
-//   @if $breakpoint == phone {
-//     @media (max-width: 600px) {
-//       @content;
-//     }
-//   }
-//   @if $breakpoint == tab-port {
-//     @media (max-width: 900px) {
-//       @content;
-//     }
-//   }
-//   @if $breakpoint == tab-land {
-//     @media (max-width: 1200px) {
-//       @content;
-//     }
-//   }
-//   @if $breakpoint == big-desktop {
-//     @media (min-width: 1800px) {
-//       @content;
-//     }
-//   }
-// }
-
 .nav-btn {
   position: relative;
   right: 2em;
@@ -338,5 +300,11 @@ $breakpoint arguement choices:
   }
   &__item:not(:last-child) {
     margin-bottom: 2em;
+  }
+}
+
+@media screen and (max-width: 1060px) {
+  .burger-container__item {
+    font-size: 2em;
   }
 }

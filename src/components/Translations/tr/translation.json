@@ -1,18 +1,21 @@
 {
   "nav": {
-    "1": "temizliyoruz",
+    "1": "temizliyoruz.",
     "2": "Ev",
     "3": "Ofis",
     "4": "Tamir Sonrası",
     "5": "Genel Temizlik",
     "6": "Planlı Temizlik",
-    "7": "Cam Temizliği"
+    "7": "Cam Temizliği",
+    "8": "Dil"
+  },
+  "button": {
+    "1": "Temizlikçi gönder"
   },
   "home": {
     "1": "Kiev'deki dairelerin temizliği",
     "2": "Evde ya da ofiste temizlik yapıyoruz. Tamir sonrası, planlı ya da genel temizlik yapıyoruz."
   },
-
   "cards": {
     "hover": "Temizlikçi bularak, görüşmeler gerçekleştirerek zamanınızı, enerjinizi ve kaynaklarınızı kaybetmenize gerek yok. Büyük ölçekli işleri daha efektif bir şekilde yapabiliriz.",
     "1": "Titizlikle seçilmiş personel",

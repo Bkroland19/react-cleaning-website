@@ -3,24 +3,14 @@ import { UserContext } from "../../contexts/UserContext";
 import LangSwitch from "../Translations/LangSwitch";
 import "./Nav.scss";
 
-function Nav({ t }) {
+function Nav({ t, i18n}) {
   const context = useContext(UserContext);
   const [navBurgerShow, setNavBurgerShow] = useState(false);
-  // const [screen1024, setScreen1024] = useState(false);
-
-  // useEffect(() => {
-  //   const calc1024 = () => {
-  //     window.innerWidth <= 1060 ? setScreen1024(true) : setScreen1024(false);
-  //   };
-  //   window.addEventListener("resize", calc1024);
-  //   calc1024();
-  //   return () => window.removeEventListener("resize", calc1024);
-  // }, []);
 
   navBurgerShow
     ? (document.body.style.overflow = "hidden")
     : (document.body.style.overflow = "auto");
-
+    
   return (
     <React.Fragment>
       <nav className={`nav ${navBurgerShow ? "burger-nav" : ""}`}>
@@ -48,7 +38,7 @@ function Nav({ t }) {
           </div>
         )}
         <div className="right-container">
-          <LangSwitch />
+          <LangSwitch t={t} i18n={i18n}/>
           {!context.calc1060 && (
             <>
               <div className="right-container__item">+380 67 401 69 77</div>

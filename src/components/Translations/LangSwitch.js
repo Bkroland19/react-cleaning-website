@@ -1,28 +1,26 @@
-import React, { useContext, useEffect } from "react";
-import { useTranslation } from "react-i18next";
+import React, { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import "./LangSwitch.scss";
 
-function LangSwitch() {
+function LangSwitch({ t, i18n }) {
   const context = useContext(UserContext);
-  const [t, i18next] = useTranslation("header");
 
   return (
     <div className={`lang-container ${context.calc1060 ? "lang--small" : ""}`}>
-      <button>Lang</button>
+      <button>{t("nav.8")}</button>
       <ul className="ul">
         <li>
           <input
             type="button"
             value="tr"
-            onClick={() => i18next.changeLanguage("tr")}
+            onClick={() => i18n.changeLanguage("tr")}
           />
         </li>
         <li>
           <input
             type="button"
             value="ru"
-            onClick={() => i18next.changeLanguage("ru")}
+            onClick={() => i18n.changeLanguage("ru")}
           />
         </li>
       </ul>
