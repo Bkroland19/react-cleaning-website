@@ -17,9 +17,10 @@
 
 Fully Responsive cleaning company website. Currenly is underway
 
-[Project-Demo]()
+[Project-Demo](https://react-cleaning-website.netlify.app)
 
-![Screenshot from 2021-08-22 11-29-58](https://user-images.githubusercontent.com/75113766/130347896-6344a375-1973-4378-9bfc-4ccc6e88a2a6.png)
+![Screenshot from 2021-08-27 20-01-12](https://user-images.githubusercontent.com/75113766/131163135-c612deef-2615-4448-8085-d833057ffe23.png)
+
 
 
 #### React Used
