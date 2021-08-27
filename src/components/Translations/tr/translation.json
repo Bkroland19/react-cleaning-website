@@ -1,0 +1,33 @@
+{
+  "nav": {
+    "1": "temizliyoruz",
+    "2": "Ev",
+    "3": "Ofis",
+    "4": "Tamir Sonrası",
+    "5": "Genel Temizlik",
+    "6": "Planlı Temizlik",
+    "7": "Cam Temizliği"
+  },
+  "home": {
+    "1": "Kiev'deki dairelerin temizliği",
+    "2": "Evde ya da ofiste temizlik yapıyoruz. Tamir sonrası, planlı ya da genel temizlik yapıyoruz."
+  },
+
+  "cards": {
+    "hover": "Temizlikçi bularak, görüşmeler gerçekleştirerek zamanınızı, enerjinizi ve kaynaklarınızı kaybetmenize gerek yok. Büyük ölçekli işleri daha efektif bir şekilde yapabiliriz.",
+    "1": "Titizlikle seçilmiş personel",
+    "2": "Kaliteli bitkisel ürümler",
+    "3": "Kalite kontrolü yapıyoruz",
+    "4": "24 saat açığız"
+  },
+  "text": {
+    "1": "Nasıl temizliyoruz?",
+    "2": "Temizlikçi gerekli ekipmanları ile birlikte belirlenen zamanda hemen işe koyulur. Size ise sonucu değerlendirmek kalır."
+  },
+  "side-menu": {
+    "1": "Mutfak",
+    "2": "Odalar",
+    "3": "Banyo",
+    "4": "Salon"
+  }
+}

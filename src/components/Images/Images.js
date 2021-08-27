@@ -15,22 +15,21 @@ const Images = ({ showIcon, triggerMenu, smallScreen }, ref) => {
   const [hover5, setHover5] = useState(false);
   const [hover6, setHover6] = useState(false);
   const [hover7, setHover7] = useState(false);
-  const windowWidth = window.innerWidth;
-  console.log(windowWidth);
-
-  useLayoutEffect(() => {
-    const imgEl = document.querySelector(".image-container--position");
-    setImgWidthPosition(imgEl.clientWidth);
-  }, [imgWidthPosition, windowWidth]);
 
   const calcWidth = () => {
     const imgEl = document.querySelector(".image-container--position");
     const imgWidth = imgEl.clientWidth;
     setImgWidthPosition(imgWidth);
   };
-  window.addEventListener("resize", calcWidth);
 
-  // showIcon;
+  useEffect(() => {
+    const imgEl = document.querySelector(".image-container--position");
+    setImgWidthPosition(imgEl.clientWidth);
+
+    window.addEventListener("resize", calcWidth);
+    calcWidth();
+    return () => window.removeEventListener("resize", calcWidth);
+  }, []);
 
   return (
     <React.Fragment>

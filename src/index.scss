@@ -18,7 +18,7 @@
     }
   }
   @if $breakpoint == tab-land {
-    @media (max-width: 1200px) {
+    @media (max-width: 1255px) {
       @content;
     }
   }
@@ -80,4 +80,13 @@ body {
   font-family: "TTT-Regular";
   src: local("TTT-Regular"),
     url(./fonts/TTTravels-Regular.ttf) format("truetype");
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
 }

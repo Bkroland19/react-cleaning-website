@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "./SideMenu.scss";
+import { useTranslation } from "react-i18next";
 import { BsArrowRight } from "react-icons/bs";
+import "./SideMenu.scss";
 
 const SideMenu = ({
   triggerMenu,
@@ -13,16 +14,18 @@ const SideMenu = ({
     setShowIcon(num);
   };
 
-  const emeruk = () => {
+  const calc = () => {
     window.innerWidth <= 900 ? setSmallScreen(true) : setSmallScreen(false);
   };
 
   useEffect(() => {
-    window.addEventListener("resize", emeruk);
-    return () => window.removeEventListener("resize", emeruk);
+    window.addEventListener("resize", calc);
+    calc();
+    return () => window.removeEventListener("resize", calc);
   }, []);
 
   const [burgerShow, setBurgerShow] = useState(false);
+  const { t, i18n } = useTranslation("translation");
 
   return (
     <React.Fragment>
@@ -33,10 +36,16 @@ const SideMenu = ({
           >
             {smallScreen && (
               <div
-                className={`menu-btn ${burgerShow ? "open menu-btn--color" : ""}`}
+                className={`menu-btn ${
+                  burgerShow ? "open menu-btn--color" : ""
+                }`}
                 onClick={() => setBurgerShow(!burgerShow)}
               >
-                <a className={`menu-btn__burger ${burgerShow ? "menu-btn__burger--color" : ""}`}></a>
+                <a
+                  className={`menu-btn__burger ${
+                    burgerShow ? "menu-btn__burger--color" : ""
+                  }`}
+                ></a>
               </div>
             )}
 
@@ -48,20 +57,20 @@ const SideMenu = ({
                       className={`icon ${showIcon == 1 ? "icon" : ""}`}
                     />
                   )}
-                  Кухня
+                  {t("side-menu.1")}
                 </div>
 
                 <div onClick={() => buttonClickHandler(2)}>
                   {showIcon == 2 && <BsArrowRight className="icon" />}
-                  Комнаты
+                  {t("side-menu.2")}
                 </div>
                 <div onClick={() => buttonClickHandler(3)}>
                   {showIcon == 3 && <BsArrowRight className="icon" />}
-                  Ванная
+                  {t("side-menu.3")}
                 </div>
                 <div onClick={() => buttonClickHandler(4)}>
                   {showIcon == 4 && <BsArrowRight className="icon" />}
-                  Прихожая
+                  {t("side-menu.4")}
                 </div>
               </React.Fragment>
             )}
@@ -73,7 +82,7 @@ const SideMenu = ({
                   className="side-btns btn1"
                 >
                   <span></span>
-                  Кухня
+                  {t("side-menu.1")}
                 </div>
 
                 <div
@@ -81,18 +90,21 @@ const SideMenu = ({
                   className="side-btns btn2"
                 >
                   <span></span>
-                  Комнаты
+                  {t("side-menu.2")}
                 </div>
                 <div
                   onClick={() => buttonClickHandler(3)}
                   className="side-btns btn3"
                 >
                   <span></span>
-                  Ванная
+                  {t("side-menu.3")}
                 </div>
-                <d onClick={() => buttonClickHandler(4)} className="side-btns btn4">
+                <d
+                  onClick={() => buttonClickHandler(4)}
+                  className="side-btns btn4"
+                >
                   <span></span>
-                  Прихожая
+                  {t("side-menu.4")}
                 </d>
               </div>
             )}

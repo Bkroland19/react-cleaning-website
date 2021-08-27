@@ -57,11 +57,11 @@
 
 .switch-1 {
   input:before {
-    content: "Дом";
+    content: attr(data-before);
     left: 20px;
   }
   input:after {
-    content: "Офис";
+    content: attr(data-after);
     right: 20px;
   }
   label {
@@ -173,6 +173,8 @@
 
 .right-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1em;
   font-family: "TTT-Medium";
   &__item {

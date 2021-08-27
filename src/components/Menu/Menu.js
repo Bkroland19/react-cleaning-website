@@ -3,15 +3,14 @@ import Images from "../Images/Images";
 import SideMenu from "../SideMenu/SideMenu";
 import "./Menu.scss";
 
-const Menu = () => {
+const Menu = ({ t }) => {
   const [triggerMenu, setTriggerMenu] = useState(false);
-  const [scPosition, setScPosition] = useState(0);
   const [showIcon, setShowIcon] = useState(0);
   const [smallScreen, setSmallScreen] = useState(false);
   const ref = useRef();
 
-  useLayoutEffect(() => {
-    const imgPosition = ref.current.getBoundingClientRect().bottom;
+  useEffect(() => {
+    const imgPosition = ref.current.getBoundingClientRect().top;
     console.log(imgPosition);
 
     const scrollHandler = () => {
@@ -21,8 +20,9 @@ const Menu = () => {
     };
 
     window.addEventListener("scroll", scrollHandler);
+    scrollHandler();
     return () => window.removeEventListener("scroll", scrollHandler);
-  }, [triggerMenu, scPosition]);
+  }, []);
 
   const calcPageWidth = () => {
     window.innerWidth <= 900 ? setSmallScreen(true) : setSmallScreen(false);
@@ -30,6 +30,7 @@ const Menu = () => {
 
   useEffect(() => {
     window.addEventListener("resize", calcPageWidth);
+    calcPageWidth();
     return () => window.removeEventListener("resize", calcPageWidth);
   }, []);
 

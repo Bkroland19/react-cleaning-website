@@ -7,7 +7,7 @@ import img5 from "../../assets/5.png";
 import img6 from "../../assets/6.png";
 import "./Cards.scss";
 
-function Cards() {
+function Cards({ t }) {
   const [show, setShow] = useState(false);
   const ref = useRef(null);
 
@@ -31,12 +31,10 @@ function Cards() {
       <div ref={ref} className="card-container">
         <div className={`card-container__item x ${show ? "animated1" : ""}`}>
           <p className="card-container__item__hover--text">
-            Не нужно тратить время, силы и ресурсы на размещение вакансий,
-            проведение собеседований, проверку кандидатов на должность уборщицы.
-            За счёт больших объёмов мы можем сделать это эффективнее.
+            {t("cards.hover")}
           </p>
           <div className="card-container__item__text">
-            <p>Тщательно отобранный персонал</p>
+            <p>{t("cards.1")}</p>
           </div>
           <div className="card-container__item__img">
             <img src={img1} alt="" />
@@ -44,12 +42,10 @@ function Cards() {
         </div>
         <div className={`card-container__item y ${show ? "animated2" : ""}`}>
           <p className="card-container__item__hover--text">
-            Не нужно тратить время, силы и ресурсы на размещение вакансий,
-            проведение собеседований, проверку кандидатов на должность уборщицы.
-            За счёт больших объёмов мы можем сделать это эффективнее.
+          {t("cards.hover")}
           </p>
           <div className="card-container__item__text">
-            <p>Качественная эко-химия</p>
+            <p>{t("cards.2")}</p>
           </div>
           <div className="card-container__item__img">
             <img src={img2} alt="" className="bottle--img" />
@@ -59,12 +55,10 @@ function Cards() {
         </div>
         <div className={`card-container__item z ${show ? "animated3" : ""}`}>
           <p className="card-container__item__hover--text">
-            Не нужно тратить время, силы и ресурсы на размещение вакансий,
-            проведение собеседований, проверку кандидатов на должность уборщицы.
-            За счёт больших объёмов мы можем сделать это эффективнее.
+          {t("cards.hover")}
           </p>
           <div className="card-container__item__text">
-            <p>Контролируем качество</p>
+            <p>{t("cards.3")}</p>
           </div>
           <div className="card-container__item__img">
             <img src={img5} alt="" />
@@ -72,12 +66,10 @@ function Cards() {
         </div>
         <div className={`card-container__item e ${show ? "animated4" : ""}`}>
           <p className="card-container__item__hover--text">
-            Не нужно тратить время, силы и ресурсы на размещение вакансий,
-            проведение собеседований, проверку кандидатов на должность уборщицы.
-            За счёт больших объёмов мы можем сделать это эффективнее.
+          {t("cards.hover")}
           </p>
           <div>
-            <p className="card-container__item__text">Работаем круглосуточно</p>
+            <p className="card-container__item__text">{t("cards.4")}</p>
           </div>
           <div className="card-container__item__img">
             <img src={img6} alt="" />
