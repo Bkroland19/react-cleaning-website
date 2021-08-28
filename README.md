@@ -26,10 +26,12 @@ Fully Responsive cleaning company website.
 #### React Used
 
 * Hooks (useEffect, useState, useLayoutEffect, useRef)
+* Context API
 * SCSS
 * ForwardRef
 * DOM Manupulations
 * CSS animations
+* Localization RU and TR
 
 ### Built With
 * [React](https://www.javascript.com/)
