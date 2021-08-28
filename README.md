@@ -15,7 +15,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Fully Responsive cleaning company website. Currenly is underway
+Fully Responsive cleaning company website. 
 
 [Project-Demo](https://react-cleaning-website.netlify.app)
 
@@ -29,6 +29,7 @@ Fully Responsive cleaning company website. Currenly is underway
 * SCSS
 * ForwardRef
 * DOM Manupulations
+* CSS animations
 
 ### Built With
 * [React](https://www.javascript.com/)
